@@ -32,15 +32,18 @@ device settings for notifications.
 4. Install the PushPlugin from its github location:
    `$ phonegap local plugin add https://github.com/phonegap-build/PushPlugin`
 
-5. Add the PushNotification.js file referenced [here](https://github.com/freesurface/mom/blob/master/planning/js/PushNotification.js) to your `/PushNotificationSample/www` folder
+5. Add the PushNotification.js file referenced 
+[here](https://github.com/freesurface/mom/blob/master/planning/js/PushNotification.js) to your `PushNotificationSample/www` folder
 
 6. Add the following script line to your index.html to reference the PushNotification.js.
    `<script type="text/javascript" src="PushNotification.js"></script>`
 
-## Registering the application with the Google Cloud Messaging service with our app
+## Registering the GCM service with our app
 ### To enable the GCM service
 Under your google developer console project:
+
 1. In the sidebar on the left, select **APIs & auth**.
+
 2. In the displayed list of APIs, turn the **Google Cloud Messaging for Android** toggle to ON.
 
 We need to make some changes to our `www/js/index.js` file, in order to register our app.
@@ -49,16 +52,21 @@ but with your *projectID* where it says *senderID* as referenced below.
 
 What we added:
 
-  -In the *receivedEvent* function, we added the following code to get a reference to
-   the push notification plugin object and call the register function. You will
-   need to pass in a success and error callback function and then a couple of parameters 
-   **including the project id you were assigned when you set up your project with Google Cloud Messaging 
-   as the senderID** and a callback function for any messages received from GCM as the ecb parameter:
-   `var pushNotification = window.plugins.pushNotification;
-   pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"824841663931","ecb":"app.onNotificationGCM"});`
-   **Note: Instead of 82484166391 put your projectID seen on your project homepage**
-  -We then added a *successHandler* and *errorHandler* which will be called whether the registration is successful or not.
-   The result if successful will contain the registration token shown from the *onNotificationGCM* function. 
+- In the *receivedEvent* function, we added the following code to get a reference to
+the push notification plugin object and call the register function. You will
+need to pass in a success and error callback function and then a couple of parameters 
+**including the project id you were assigned when you set up your project with Google Cloud Messaging 
+as the senderID** and a callback function for any messages received from GCM as the ecb parameter:
+
+```
+var pushNotification = window.plugins.pushNotification;
+pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"824841663931","ecb":"app.onNotificationGCM"});
+```
+
+**Note: Instead of 82484166391 put your projectID seen on your project homepage**
+
+-We then added a *successHandler* and *errorHandler* which will be called whether the registration is successful or not.
+The result if successful will contain the registration token shown from the *onNotificationGCM* function. 
 
 ##Running the Application
 We now want to run the application to get the **registrationID**
@@ -80,7 +88,9 @@ Assuming you have the android-sdk tools and platform-tools set on your environme
 ##Sending our Push Notification
 Now that our phone is registered we need to send a message from our server
 to the registered IDs.
+
 To obtain an API key:
+
 1. In the sidebar on the left, select **APIs & auth > Credentials**.
 2. Under **Public API access**, click **Create new key**.
 3. In the **Create a new key** dialog, click **Server key**.
