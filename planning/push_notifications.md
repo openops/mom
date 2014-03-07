@@ -82,8 +82,7 @@ android device and a token received in an alert such as shown below:
 We will need the registration id returned to our application. Using the Android adb tool you can run logcat 
 to watch the console while the application is running, making it easier to copy the ID down.
 Assuming you have the android-sdk tools and platform-tools set on your environment path you can simply run
-
- `adb logcat` from the command line to show your device log.
+`adb logcat` from the command line to show your device log.
 
 ##Sending our Push Notification
 Now that our phone is registered we need to send a message from our server
