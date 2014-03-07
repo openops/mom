@@ -16,7 +16,7 @@ is a combination of the settings in the application code as well as the user’s
 device settings for notifications.
 
 ### Pre-requisites for Android
-- Phonegap version 3.0.0 or later 'phonegap --version'
+- Phonegap version 3.0.0 or later `phonegap --version`
 - A Project on [Google Developer Console](https://console.developers.google.com/)
 
 ### Preparing your Google Project
