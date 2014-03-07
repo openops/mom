@@ -19,5 +19,20 @@ device settings for notifications.
 - Phonegap version 3.0.0 or later `phonegap --version`
 - A Project on [Google Developer Console](https://console.developers.google.com/)
 
-### Preparing your Google Project
+### Configure your app for PushPlugin 
+1. Create a basic PhoneGap project, which we will use as our example app
+   `$ phonegap create PushNotificationSample --id "com.pushapp" --name "PushNotificationApp"`
 
+2. cd into the newly created project folder
+   `$ cd PushNotificationSample`
+
+3. Build the application for Android (also adds it as a platform under the /platforms folder)
+   `$ phonegap local build android`
+
+4. Install the PushPlugin from its github location via the PhoneGap CLI:
+   `$ phonegap local plugin add https://github.com/phonegap-build/PushPlugin`
+
+5. Add the PushNotification.js file referenced [here](https://github.com/freesurface/mom/blob/master/planning/js/PushNotification.js) to your `/PushNotificationSample/www` folder
+
+6. Add the following script line to your index.html to reference the PushNotification.js.
+   `<script type="text/javascript" src="PushNotification.js"></script>`
