@@ -65,7 +65,7 @@ pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"8248
 
 **Note: Instead of 82484166391 put your projectID seen on your project homepage**
 
--We then added a *successHandler* and *errorHandler* which will be called whether the registration is successful or not.
+- We then added a *successHandler* and *errorHandler* which will be called whether the registration is successful or not.
 The result if successful will contain the registration token shown from the *onNotificationGCM* function. 
 
 ##Running the Application
