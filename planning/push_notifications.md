@@ -77,7 +77,7 @@ You can run the application on your phone through USB if you have USB Debugging 
 When you run the application you should see a call made to register your 
 android device and a token received in an alert such as shown below:
 
-![](https://github.com/freesurface/mom/blob/master/planning/img/android-notify-reg.png)
+![](https://github.com/freesurface/mom/blob/master/planning/img/android-notify-reg.png?raw=true)
 
 We will need the registration id returned to our application. Using the Android adb tool you can run logcat 
 to watch the console while the application is running, making it easier to copy the ID down.
