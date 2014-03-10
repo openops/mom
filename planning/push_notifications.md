@@ -86,7 +86,8 @@ environment path you can simply run `adb logcat` from the command line to show y
 
 ##Sending our Push Notification
 
-To send our Notification we will need 2 things.
+To send our Notification we will need 2 things:
+
 1. The API Key of the source for the message
 2. The registrationID(s) of the device(s) we want to send to
 
