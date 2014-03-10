@@ -58,7 +58,7 @@ need to pass in a success and error callback function and then a couple of param
 **including the project id you were assigned when you set up your project with Google Cloud Messaging 
 as the senderID** and a callback function for any messages received from GCM as the ecb parameter:
 
-```
+```javascript
 var pushNotification = window.plugins.pushNotification;
 pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"824841663931","ecb":"app.onNotificationGCM"});
 ```
@@ -99,7 +99,7 @@ To obtain an API key, return to our google project and do the following:
 4. Click Create.
 
 
-Open a editor and create a file called notify.js and paste in the following, replacing the Sender key(API KEY)
+Open an editor and create a file called notify.js and paste in the following, replacing the Sender key(API KEY)
 and device registration id(s) with yours.
 
 node-gcm is required : `npm install node-gcm`
