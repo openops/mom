@@ -79,18 +79,56 @@ android device and a token received in an alert such as shown below:
 
 ![](https://github.com/freesurface/mom/blob/master/planning/img/android-notify-reg.png?raw=true)
 
-We will need the registration id returned to our application. Using the Android adb tool you can run logcat 
-to watch the console while the application is running, making it easier to copy the ID down.
-Assuming you have the android-sdk tools and platform-tools set on your environment path you can simply run
-`adb logcat` from the command line to show your device log.
+The registration ID is essentially the ID of the phone that you want to send notifications
+to. Since we will need this ID for our app, the best way to get it is by using the Android adb tool to
+monitor the device log. Assuming you have the android-sdk tools and platform-tools set on your 
+environment path you can simply run `adb logcat` from the command line to show your device log.
 
 ##Sending our Push Notification
-Now that our phone is registered we need to send a message from our server
-to the registered IDs.
 
-To obtain an API key:
+To send our Notification we will need 2 things.
+1. The API Key of the source for the message
+2. The registrationID(s) of the device(s) we want to send to
+
+To obtain an API key, return to our google project and do the following:
 
 1. In the sidebar on the left, select **APIs & auth > Credentials**.
 2. Under **Public API access**, click **Create new key**.
 3. In the **Create a new key** dialog, click **Server key**.
 4. Click Create.
+
+
+Open a editor and create a file called notify.js and paste in the following, replacing the Sender key(API KEY)
+and device registration id(s) with yours.
+
+node-gcm is required : `npm install node-gcm`
+
+```
+var gcm = require('node-gcm');
+var message = new gcm.Message();
+ 
+//API Server Key
+var sender = new gcm.Sender('AIzaSyCDx8v9R0fMsAsjoAffF-P3FCFWXlvwLhg');
+var registrationIds = [];
+ 
+// Value the payload data to send...
+message.addData('message',"this is the test message");
+message.addData('title','Push Notification Sample' );
+message.addData('msgcnt','3'); // Shows up in the notification in the status bar
+message.addData('soundname','beep.wav'); //Sound to play upon notification receipt - put in the www folder in app
+//message.collapseKey = 'demo';
+//message.delayWhileIdle = true; //Default is false
+message.timeToLive = 3000;// Duration in seconds to hold in GCM and retry before timing out. Default 4 weeks (2,419,200 seconds) if not specified.
+ 
+// At least one reg id required
+registrationIds.push('APA91bwu-47V0L7xB55zoVd47zOJahUgBFFuxDiUBjLAUdpuWwEcLd3FvbcNTPKTSnDZwjN384qTyfWW2KAJJW7ArZ-QVPExnxWK91Pc-uTzFdFaJ3URK470WmTl5R1zL0Vloru1B-AfHO6QFFg47O4Cnv6yBOWEFcvZlHDBY8YaDc4UeKUe7ao');
+ 
+/**
+ * Parameters: message-literal, registrationIds-array, No. of retries, callback-function
+ */
+sender.send(message, registrationIds, 4, function (result) {
+    console.log(result);
+});
+```
+
+**Note: Replace the Sender key with your API_KEY and registrationID with your ID**
