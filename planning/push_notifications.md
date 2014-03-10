@@ -103,7 +103,7 @@ and device registration id(s) with yours.
 
 node-gcm is required : `npm install node-gcm`
 
-```
+```javascript
 var gcm = require('node-gcm');
 var message = new gcm.Message();
  
