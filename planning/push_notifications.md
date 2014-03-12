@@ -9,7 +9,10 @@ when they are not paying attention. Push notifications will act as the best meth
 to engage a smartphone user who may be preoccupied with something else. MOM will be a constant
 reminder to the user by checking up on him/her.
 
-
+This markdown will take you through the proccess of:
+- Making a test app with phonegap
+- Getting your phone registered with the app through Google Cloud  Messaging
+- Sending Push Notifications to the phone
 
 
 ### iOS vs Android
