@@ -2,10 +2,10 @@ Strategy for MOM
 =======================
 
 ##Components
-- Phonegap
-- AngularJS
-- Push Notifications
-- NodeJS 
+- [Phonegap](phonegap.md)
+- [AngularJS](angular.md)
+- [Push Notifications](push_notifications.md)
+- [NodeJS](node.md)
 
 ## General Structure
 
