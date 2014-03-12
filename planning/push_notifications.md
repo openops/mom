@@ -145,3 +145,11 @@ sender.send(message, registrationIds, 4, function (result) {
 ```
 
 **Note: Replace the Sender key with your API_KEY and registrationID with your ID**
+
+
+<!-- References
+
+http://devgirl.org/
+http://developer.android.com/google/gcm/gs.html
+
+-->
