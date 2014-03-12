@@ -3,7 +3,16 @@ Push Notifications
 
 Sending Push Notificaions for the Android and iOS environments
 
-### Overview
+### Introduction
+In practice MOM will need to be able to be able to check in with people even 
+when they are not paying attention. Push notifications will act as the best method 
+to engage a smartphone user who may be preoccupied with something else. MOM will be a constant
+reminder to the user by checking up on him/her.
+
+
+
+
+### iOS vs Android
 
 iOS devices recieve push notifications from Apple Push Notifications (APN) 
 Service, where Android devices recieve them from Google Cloud Messaging (GCM). 
