@@ -19,6 +19,6 @@ $ phonegap create my-app
 $ cd my-app
 $ phonegap run android
 ```
-**Note: android sdk required
+**Note: android sdk required**
 
 
