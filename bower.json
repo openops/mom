@@ -1,7 +1,8 @@
 {
-   "name": "mom",
-   "version": "1.0.0",
-   "dependencies": {
-      "angular": "latest"
-   }
+  "name": "mom",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "latest",
+    "foundation": "~5.2.0"
+  }
 }
