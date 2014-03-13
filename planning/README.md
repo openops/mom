@@ -10,4 +10,9 @@ Strategy for MOM
 ## General Structure
 
 
+## Contributing
+
+Ensure that you follow our strategy for using [Git with GitHub](git.md).
+
+
 

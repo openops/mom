@@ -1,4 +1,4 @@
-# Git Proccesses
+# Git Processes
 
 All new features should start off as a branch and be merged back into master
 when complete as a [GitHub pull request][1].
