@@ -1,0 +1,7 @@
+{
+   "name": "mom",
+   "version": "1.0.0",
+   "dependencies": {
+      "angular": "latest"
+   }
+}
