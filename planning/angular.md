@@ -2,7 +2,7 @@ Angular.js
 ======================
 ## An Introduction to Angular.js
 MOM will use Angular because it is a structural framework for dynamic web apps which is  well-suited for building 
-web apps in a concise way. One thing is for sure, if you stick to Angular, the jQuery loops and explicit back-and-forth with the server will be absent from your code, since Angular provides such a succinct and clean method of achieving the same things. The main advantage over jQuery is that the loops and explicit back-and-forth with the server will be absent from your code, since Angular provides such a concise and clean method of achieving the same things.
+web apps in a concise way. A main benefit to Angular over jQuery are that loops and explicit back-and-forth with the server will be absent from your code, since Angular provides such a succinct and clean method of achieving the same things. The main advantage over jQuery is that the loops and explicit back-and-forth with the server will be absent from your code, since Angular provides such a concise and clean method of achieving the same things.
 
 ##Directives
 
