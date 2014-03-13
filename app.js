@@ -4,8 +4,8 @@
  */
 
 var express = require('express');
-var routes = require('./js/routes');
-var user = require('./js/routes/user');
+var routes = require('./public/js/routes');
+var user = require('./public/js/routes/user');
 var http = require('http');
 var path = require('path');
 
@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, '')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', routes.index);
