@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "dependencies": {
     "angular": "latest",
-    "foundation": "~5.2.0"
+    "foundation": "zurb/bower-foundation"
   }
 }
