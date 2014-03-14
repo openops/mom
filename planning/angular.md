@@ -95,3 +95,7 @@ function ItemListCtrl ($scope, $http) {
 ```
 
 This returns a JSON object that can manipulated in your Angular app.
+
+### More Learning Resources
+
+https://github.com/jmcunningham/AngularJS-Learning
