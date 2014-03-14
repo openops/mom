@@ -19,6 +19,10 @@ cd phonegap
 phonegap run android
 ```
 
+To build the css using libsass type:
+```bash
+grunt build
+```
 
 
 ## Contributing
