@@ -11,7 +11,7 @@ Express will help create MOM as an application that lives entirely in the browse
 If you are running the app locally through your express server,
 the best way to connect is by doing the following:
 
-- Turn on Wifi Hotspot of your android phone and connect your Laptop with your phone.
+- Turn on the WiFi Hotspot feature of your android phone and connect your Laptop to the hotspot then:
 - Start your server at localhost (the current server connects through port 8080)
 - Now open terminal and enter `ifconfig` command to find your IP
 ```
