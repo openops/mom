@@ -7,7 +7,18 @@ Strategy for MOM
 - [Push Notifications](push_notifications.md)
 - [NodeJS](node.md)
 
-## General Structure
+## Getting Started
+```bash
+git clone https://github.com/freesurface/mom
+```
+
+```bash
+cd mom
+npm install
+cd phonegap
+phonegap run android
+```
+
 
 
 ## Contributing
