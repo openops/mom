@@ -28,6 +28,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 
 }]);
 
+
 function JobsListCtrl ($scope) {
      $scope.jobs = [
 	  { "name": "job1",
