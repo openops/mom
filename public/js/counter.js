@@ -28,14 +28,22 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 
 }]);
 
-
 function JobsListCtrl ($scope) {
-     $scope.jobs = [
-	  { "name": "job1",
-	    "duration": 10},
-	  { "name": "job2",
-	    "duration": 20},
-	  { "name": "job3",
-	    "duration": 30}
-	  ];
+     $scope.jobs = localjobs;
 }
+    
+//Check Local Storage
+var retrievedObject = localStorage.getItem('jobs2');
+if (retrievedObject == (null)) {
+    //No local storage load test data
+    localjobs = [
+    { "name": "job1"},
+    { "name": "job2"}
+    ];
+    alert('testjobs set(no local storage)');
+}
+else{
+    localjobs = JSON.parse(retrievedObject);
+    alert('loading local storage jobs');
+}
+

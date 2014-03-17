@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "angular": "latest",
-    "foundation": "zurb/bower-foundation"
+    "foundation": "zurb/bower-foundation",
+    "momentjs": "~2.5.1"
   }
 }
