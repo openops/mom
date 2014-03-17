@@ -1,13 +1,23 @@
 <html>
- <body ng-app="counterapp">
-   <!--counterCtrl App Controller -->
-  <div ng-controller="counterCtrl">
-    <!--Angular Binding -->
-   <p ng-bind="counter"></p>
-    <button ng-click="stop()">Stop</button>
-    <button ng-click="start()">Start</button>
-  </div>
-  <script src="bower_packages/angular/angular.min.js"></script>
-  <script src="js/counter.js"></script>
- </body>
+    <head> 
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+    </head>
+    <body ng-app="counterapp">
+	<div ng-controller = "JobsListCtrl">
+	    <p>List of Jobs</p>
+	    <ul>
+		<li ng-repeat="job in jobs">
+		    <ul ng-controller = 'counterCtrl' class="button-group">
+			<h3 ng-bind="counter" />
+			<li> <button ng-click="stop()"> Stop</li>
+			<li> <button ng-click="start()"> Start</li>
+			<li> <button ng-click="reset()"> Reset</li>
+		    </ul>
+		</li>
+	    </ul>
+	</div>
+
+	<script src="bower_packages/angular/angular.min.js"></script>
+	<script src="js/counter.js"></script>
+    </body>
 </html>
