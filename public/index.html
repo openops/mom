@@ -4,14 +4,13 @@
     </head>
     <body ng-app="counterapp">
 	<div ng-controller = "JobsListCtrl">
-	    <p>List of Jobs</p>
+	    <p>Total Jobs: {{jobs.length}} </p>
 	    <ul>
 		<li ng-repeat="job in jobs">
 		    <ul ng-controller = 'counterCtrl' class="button-group">
-			<h3><span ng-bind="counter" /></h3>
-			<li> <button ng-click="stop()"> Stop</li>
-			<li> <button ng-click="start()"> Start</li>
-			<li> <button ng-click="reset()"> Reset</li>
+			<h3 ng-bind="counter"></h3>
+			<li> <button id="startbutt" ng-click="start()"> Start</li>
+			<li> <button id="resetbutt" ng-click="reset()"> Reset</li>
 		    </ul>
 		</li>
 	    </ul>

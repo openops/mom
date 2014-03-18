@@ -40,10 +40,8 @@ if (retrievedObject == (null)) {
     { "name": "job1"},
     { "name": "job2"}
     ];
-    alert('testjobs set(no local storage)');
 }
 else{
     localjobs = JSON.parse(retrievedObject);
-    alert('loading local storage jobs');
 }
 
