@@ -9,6 +9,8 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     //timeout function is 1000ms = 1 second
     
     $scope.start = function() {
+	$scope.disable = true;
+	$scope.isDisabled = true;
 	stopped = $timeout(function() {
 	console.log($scope.counter);
 	$scope.counter++;   
@@ -22,6 +24,8 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     } 
 
     $scope.reset = function(){
+	$scope.disable = false;
+	$scope.isDisabled = false;
 	$timeout.cancel(stopped);
 	$scope.counter = 0;
     }

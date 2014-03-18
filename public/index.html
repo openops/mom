@@ -9,8 +9,8 @@
 		<li ng-repeat="job in jobs">
 		    <ul ng-controller = 'counterCtrl' class="button-group">
 			<h3 ng-bind="counter"></h3>
-			<li> <button id="startbutt" ng-click="start()"> Start</li>
-			<li> <button id="resetbutt" ng-click="reset()"> Reset</li>
+			<li> <button ng-class ="{'disabled':disable}" ng-click="isDisabled || start()"> Start</li>
+			<li> <button ng-click="reset()"> Reset</li>
 		    </ul>
 		</li>
 	    </ul>
