@@ -1,48 +1,92 @@
 var myModule = angular.module("counterapp", []);
 
+function pad(d) {
+    return (d < 10) ? '0' + d.toString() : d.toString();
+}
+
 myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout){
-    
     //Update counter to duration
     
-    $scope.counter = $scope.job.dur;
-    //Adding initial value for counter
+    $scope.seconds = 0;
+    $scope.hours = 0;
+    $scope.minutes = 0;
+    $scope.tDur = 0;
+    //Format time 
+    while ($scope.seconds >= 3600) { 
+	$scope.seconds = $scope.seconds - 3600;
+	$scope.hours++;
+    }
+
+    while ($scope.seconds >= 60) { 
+	$scope.seconds = $scope.seconds - 60;
+	$scope.minutes++;
+    }
+    
     
     var stopped;
     //timeout function is 1000ms = 1 second
     
-    $scope.start = function(dur) {
+    $scope.start = function() {
 	$scope.isDisabled = true;
 	stopped = $timeout(function() {
-	$scope.counter++;   
-	$scope.start();   
-	}, 100);
+	    $scope.seconds++;
+	    $scope.tDur++;
+	    if ($scope.seconds == 60) { $scope.minutes++; $scope.seconds = 0; }
+	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
+	    if ($scope.tDur%5 == 0){
+		$scope.session.duration = $scope.tDur;
+		localStorage.setItem('Session_' + $scope.job.id, JSON.stringify($scope.session));
+	    }
+	    $scope.start();
+	}, 1000);
     };
     
 	
     $scope.stop = function(){
-    $timeout.cancel(stopped);
+	//Stops the current timer
+	$timeout.cancel(stopped);
+	$scope.isDisabled = false;
     } 
 
     $scope.reset = function(){
 	$scope.isDisabled = false;
 	$timeout.cancel(stopped);
-	$scope.counter = 0;
+	$scope.seconds = 0;
     }
+
+    $scope.CreateSession = function(){
+	//called when user hits start
+	//creates a new session with the job id
+	$scope.session =
+	    { 'start' : Date.now(),
+	      'intervals': [
+		 {'start': Date.now(),
+		  'stop' : 'false'}
+	      ],
+	      'duration': 0
+	    }
+	    //Store in local storage with job-id
+	    
+	};
 
 }]);
-
 function JobsListCtrl ($scope) {
+
+//localStorage.clear();
+
     //Check Local Storage
-    var retrievedObject = localStorage.getItem('jobs2');
-    if (retrievedObject == (null)) {
+    var storedJobs = localStorage.getItem('jobs');
+    if (storedJobs == (null)) {
 	//No local storage load test data
-	localjobs = [
-	    { "name": "job1", 'dur': 10},
-	    { "name": "job2", 'dur': 20}
+	$scope.jobs = [
+	    { 'id' : '2X0XAA', 'name' : 'Working on the MOM app' },
+	    { 'id' : 'AH49SJ', 'name' : 'Creating logo'},
+	    { 'id' : 'D3FKF4', 'name' : 'Eating Lunch'}
 	];
+	// If person clicks Start, jobs loads to active session
     }
     else{
-    localjobs = JSON.parse(retrievedObject);
+	// load stored jobs
+        $scope.jobs = JSON.parse(storedJobs);
     }
-	$scope.jobs = localjobs;
 }
