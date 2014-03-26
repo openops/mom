@@ -4,6 +4,13 @@ function pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
 }
 
+function getArrayIndexForKey(arr, key, val){
+    for(var i = 0; i < arr.length; i++){
+	if(arr[i][key] == val)
+	return i;
+    }
+    return -1;
+}
 
 myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout){
     $scope.seconds = 0;
@@ -70,7 +77,14 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	$scope.savesession('Archive');
     }
     
-
+    $scope.removejob = function(){
+	$scope.clearsession();
+	$timeout.cancel(stopped);
+	$scope.cleartime();
+	localStorage.removeItem('Session_' + $scope.job.id);
+	var indextoremove = getArrayIndexForKey($scope.jobs, "id", $scope.job.id);
+	$scope.jobs.splice(indextoremove, 1)
+    }
 
     // These functions are used internally to create more readable,
     // aswell as modular code.
@@ -86,10 +100,9 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 
     $scope.clearsession = function(){
 	$scope.session =
-	    { 'start' : Date.now(),
-	      'intervals': [
-		    {'start': Date.now(),
-		     'stop' : 'false'}
+	    {'intervals': [
+		{'start': Date.now(),
+		 'stop' : 'false'}
 	    ],
 	    'duration': 0
 	    }
@@ -104,15 +117,18 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     }
 
 }]);
+
+
+// The following is run when the the job list is first created
+
 function JobsListCtrl ($scope) {
 
 localStorage.clear();
 
     $scope.session =
-	{ 'start' : Date.now(),
-	'intervals': [
+	{'intervals': [
 	    {'start': Date.now(),
-	    'stop' : 'false'}
+	     'stop' : 'false'}
 	],
 	'duration': 0
 	}
@@ -125,8 +141,7 @@ localStorage.clear();
 	//No local storage load test data
 	$scope.jobs = [
 	    { 'id' : '2X0XAA', 'name' : 'Working on the MOM app' },
-	    { 'id' : 'AH49SJ', 'name' : 'Creating logo'},
-	    { 'id' : 'D3FKF4', 'name' : 'Eating Lunch'}
+	    { 'id' : 'AH49SJ', 'name' : 'Creating logo'}
 	];
 	// If person clicks Start, jobs loads to active session
     }
