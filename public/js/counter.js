@@ -6,7 +6,6 @@ function pad(d) {
 
 myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout){
     //Update counter to duration
-    
     $scope.seconds = 0;
     $scope.hours = 0;
     $scope.minutes = 0;
@@ -46,33 +45,63 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	//Stops the current timer
 	$timeout.cancel(stopped);
 	$scope.isDisabled = false;
+	$scope.session.intervals[$scope.session.intervals.length - 1].stop = Date.now();
+	localStorage.setItem('Session_' + $scope.job.id, JSON.stringify($scope.session));
+	//Add a new start interval
+	$scope.session.intervals.push({'start': Date.now(),'stop': 'false'});
     } 
 
     $scope.reset = function(){
 	$scope.isDisabled = false;
+	$scope.session =
+	    { 'start' : Date.now(),
+	      'intervals': [
+		    {'start': Date.now(),
+		     'stop' : 'false'}
+	    ],
+	    'duration': 0
+	    }
+	//Store in local storage with job-id
 	$timeout.cancel(stopped);
 	$scope.seconds = 0;
     }
 
-    $scope.CreateSession = function(){
-	//called when user hits start
-	//creates a new session with the job id
-	$scope.session =
-	    { 'start' : Date.now(),
-	      'intervals': [
-		 {'start': Date.now(),
-		  'stop' : 'false'}
-	      ],
-	      'duration': 0
-	    }
-	    //Store in local storage with job-id
-	    
-	};
+    $scope.log = function(){
+	$timeout.cancel(stopped);
+	$scope.isDisabled = false;
+	$scope.session.intervals[$scope.session.intervals.length - 1].stop = Date.now();
+	localStorage.setItem('Session_' + $scope.job.id, JSON.stringify($scope.session));
+	localStorage.setItem('Archive_' + $scope.job.id, JSON.stringify($scope.session.intervals));
+    }
+
+    //creates a new session with the job id
+    $scope.session =
+	{ 'start' : Date.now(),
+	'intervals': [
+	    {'start': Date.now(),
+	     'stop' : 'false'}
+	],
+	'duration': 0
+	}
+	//Store in local storage with job-id
+	
 
 }]);
 function JobsListCtrl ($scope) {
 
-//localStorage.clear();
+localStorage.clear();
+
+
+    $scope.session =
+	{ 'start' : Date.now(),
+	'intervals': [
+	    {'start': Date.now(),
+	    'stop' : 'false'}
+	],
+	'duration': 0
+	}
+	//Store in local storage with job-id
+
 
     //Check Local Storage
     var storedJobs = localStorage.getItem('jobs');
