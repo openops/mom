@@ -4,8 +4,8 @@ function pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
 }
 
+
 myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout){
-    //Update counter to duration
     $scope.seconds = 0;
     $scope.hours = 0;
     $scope.minutes = 0;
@@ -23,10 +23,14 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     
     
     var stopped;
-    //timeout function is 1000ms = 1 second
-    
+   
+    // These are the functions used when clicking the corresponding
+    // buttons displayed on each job
+
+
     $scope.start = function() {
 	$scope.isDisabled = true;
+	$scope.savesession('Session');
 	stopped = $timeout(function() {
 	    $scope.seconds++;
 	    $scope.tDur++;
@@ -34,10 +38,10 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
 	    if ($scope.tDur%5 == 0){
 		$scope.session.duration = $scope.tDur;
-		localStorage.setItem('Session_' + $scope.job.id, JSON.stringify($scope.session));
+		$scope.savesession('Session');
 	    }
 	    $scope.start();
-	}, 1000);
+	}, 1000);  //1000ms = 1 second
     };
     
 	
@@ -45,14 +49,42 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	//Stops the current timer
 	$timeout.cancel(stopped);
 	$scope.isDisabled = false;
-	$scope.session.intervals[$scope.session.intervals.length - 1].stop = Date.now();
-	localStorage.setItem('Session_' + $scope.job.id, JSON.stringify($scope.session));
+	$scope.intervalstop();
+	$scope.savesession('Session');
 	//Add a new start interval
 	$scope.session.intervals.push({'start': Date.now(),'stop': 'false'});
     } 
 
     $scope.reset = function(){
 	$scope.isDisabled = false;
+	$scope.clearsession();
+	$timeout.cancel(stopped);
+	$scope.cleartime();
+    }
+
+    $scope.log = function(){
+	$timeout.cancel(stopped);
+	$scope.isDisabled = false;
+	$scope.intervalstop();
+	$scope.savesession('Session');
+	$scope.savesession('Archive');
+    }
+    
+
+
+    // These functions are used internally to create more readable,
+    // aswell as modular code.
+
+
+    $scope.savesession = function(name){
+	localStorage.setItem(name + '_' + $scope.job.id, JSON.stringify($scope.session));
+    }
+    
+    $scope.intervalstop = function(){
+	$scope.session.intervals[$scope.session.intervals.length - 1].stop = Date.now();
+    }
+
+    $scope.clearsession = function(){
 	$scope.session =
 	    { 'start' : Date.now(),
 	      'intervals': [
@@ -61,36 +93,20 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	    ],
 	    'duration': 0
 	    }
-	//Store in local storage with job-id
-	$timeout.cancel(stopped);
+    }
+
+
+    $scope.cleartime = function(){
 	$scope.seconds = 0;
+	$scope.minutes = 0;
+	$scope.hours = 0;
+	$scope.tDur = 0;
     }
-
-    $scope.log = function(){
-	$timeout.cancel(stopped);
-	$scope.isDisabled = false;
-	$scope.session.intervals[$scope.session.intervals.length - 1].stop = Date.now();
-	localStorage.setItem('Session_' + $scope.job.id, JSON.stringify($scope.session));
-	localStorage.setItem('Archive_' + $scope.job.id, JSON.stringify($scope.session.intervals));
-    }
-
-    //creates a new session with the job id
-    $scope.session =
-	{ 'start' : Date.now(),
-	'intervals': [
-	    {'start': Date.now(),
-	     'stop' : 'false'}
-	],
-	'duration': 0
-	}
-	//Store in local storage with job-id
-	
 
 }]);
 function JobsListCtrl ($scope) {
 
 localStorage.clear();
-
 
     $scope.session =
 	{ 'start' : Date.now(),
