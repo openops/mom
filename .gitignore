@@ -1,1 +1,11 @@
 node_modules/
+
+# built application files
+*.apk
+*.ap_
+
+# generated files - android project subfolder
+phonegap/platforms/android/bin/
+phonegap/platforms/android/gen/
+phonegap/platforms/android/assets/
+
