@@ -30,10 +30,9 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     
     
     var stopped;
-   
+    var savetimer;
     // These are the functions used when clicking the corresponding
     // buttons displayed on each job
-
 
     $scope.start = function() {
 	$scope.isDisabled = true;
@@ -61,7 +60,6 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	//Add a new start interval
 	$scope.session.intervals.push({'start': Date.now(),'stop': 'false'});
     } 
-
     $scope.reset = function(){
 	$scope.isDisabled = false;
 	$scope.clearsession();
@@ -121,7 +119,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 
 // The following is run when the the job list is first created
 
-function JobsListCtrl ($scope) {
+function JobsListCtrl ($scope, $timeout) {
 
 localStorage.clear();
 
@@ -149,4 +147,14 @@ localStorage.clear();
 	// load stored jobs
         $scope.jobs = JSON.parse(storedJobs);
     }
+    
+    runCounter = function() {
+	$scope.gcount += 1;
+	//GLOBAL TIMER TO SAVE ALL SESSIONS
+	$timeout(runCounter, 5000);
+    };
+
+    runCounter();    
+    $scope.gcount = 0;
+
 }

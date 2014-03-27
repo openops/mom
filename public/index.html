@@ -3,7 +3,7 @@
 	<link rel="stylesheet" type="text/css" href="css/app.css">
     </head>
     <body ng-app="counterapp">
-	<div ng-controller = "JobsListCtrl">
+	<div ng-controller = "JobsListCtrl" data-ng-init="globaltimer()">
 	    <p>Jobs Array length: {{jobs.length}} </p>
 	    <ul>
 		<li ng-repeat="job in jobs">
