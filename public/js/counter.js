@@ -43,12 +43,15 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	    $scope.savesession('Session');
 	    console.log('first time run for ' + $scope.job.name);
 	}
+	// THIS NEEDS TO BE SEPERATE FROM START
 	stopped = $timeout(function() {
 	    $scope.seconds++;
 	    if ($scope.seconds == 60) { $scope.minutes++; $scope.seconds = 0; }
 	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
 	    $scope.start();
 	}, 1000);  //1000ms = 1 second
+	// THAT WAY BUTTONS CAN BE SEPERATE FROM THE TIMER
+
     };
     
 	
