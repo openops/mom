@@ -6,6 +6,12 @@ Strategy for MOM
 - [AngularJS](angular.md)
 - [Push Notifications](push_notifications.md)
 - [NodeJS](node.md)
+- [Express](express.md)
+- [Foundation](foundation.md)
+- [Git](git.md)
+- [Local Storage](local_storage.md)
+- [Testing](testing.md)
+- [Usability](usability.md)
 
 ## Getting Started
 ```bash
