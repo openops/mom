@@ -1,2 +1,4 @@
 node_modules/
-phonegap/platforms
+phonegap/platforms/android/assets/
+phonegap/platforms/android/bin/
+phonegap/platforms/android/gen/
