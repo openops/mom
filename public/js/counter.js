@@ -16,7 +16,6 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     $scope.seconds = 0;
     $scope.hours = 0;
     $scope.minutes = 0;
-    $scope.tDur = 0;
     //Format time 
     while ($scope.seconds >= 3600) { 
 	$scope.seconds = $scope.seconds - 3600;
@@ -31,21 +30,23 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     
     var stopped;
     var savetimer;
+    $scope.firsttime = true;
     // These are the functions used when clicking the corresponding
     // buttons displayed on each job
 
     $scope.start = function() {
-	$scope.isDisabled = true;
-	$scope.savesession('Session');
+	$scope.StartDisabled = true;
+	if ($scope.firsttime == true) {
+	    $scope.session.intervals[0].start = Date.now();
+	    $scope.session.intervals[0].stop = 'false';
+	    $scope.firsttime = false;
+	    $scope.savesession('Session');
+	    console.log('first time run for ' + $scope.job.name);
+	}
 	stopped = $timeout(function() {
 	    $scope.seconds++;
-	    $scope.tDur++;
 	    if ($scope.seconds == 60) { $scope.minutes++; $scope.seconds = 0; }
 	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
-	    if ($scope.tDur%5 == 0){
-		$scope.session.duration = $scope.tDur;
-		$scope.savesession('Session');
-	    }
 	    $scope.start();
 	}, 1000);  //1000ms = 1 second
     };
@@ -54,14 +55,18 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     $scope.stop = function(){
 	//Stops the current timer
 	$timeout.cancel(stopped);
-	$scope.isDisabled = false;
+	$scope.ResumeDisabled = false;
 	$scope.intervalstop();
 	$scope.savesession('Session');
 	//Add a new start interval
-	$scope.session.intervals.push({'start': Date.now(),'stop': 'false'});
     } 
+    $scope.resume = function(){
+	$scope.session.intervals.push({'start': Date.now(),'stop': 'false'});
+	$scope.savesession('Session');
+	$scope.start();
+    }
     $scope.reset = function(){
-	$scope.isDisabled = false;
+	$scope.StartDisabled = false;
 	$scope.clearsession();
 	$timeout.cancel(stopped);
 	$scope.cleartime();
@@ -69,7 +74,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 
     $scope.log = function(){
 	$timeout.cancel(stopped);
-	$scope.isDisabled = false;
+	$scope.StartDisabled = false;
 	$scope.intervalstop();
 	$scope.savesession('Session');
 	$scope.savesession('Archive');
@@ -124,15 +129,10 @@ function JobsListCtrl ($scope, $timeout) {
 localStorage.clear();
 
     $scope.session =
-	{'intervals': [
-	    {'start': Date.now(),
-	     'stop' : 'false'}
-	],
-	'duration': 0
-	}
-	//Store in local storage with job-id
+	{'intervals': [{start : '', stop: ''}],
+	 'duration': 0 };
 
-
+    //Store in local storage with job-id
     //Check Local Storage
     var storedJobs = localStorage.getItem('jobs');
     if (storedJobs == (null)) {

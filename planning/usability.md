@@ -27,11 +27,13 @@ The following are features that will be displayed on each individual job
 1. Begin timer
 2. Set Start time in interval array
 3. Stop time for same interval will be *false*
+4. Save session in local storage
 
 ### Stop Button
 1. Pause Timer
 2. Add Stop time interval in replace of *false*
 3. Change Start Button to Resume Button
+4. Save session in local storage
 
 ### Resume Button
 1. Pushes new interval object into the interval Array
