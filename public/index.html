@@ -4,7 +4,7 @@
     </head>
     <body ng-app="counterapp">
 	<div ng-controller = "JobsListCtrl" data-ng-init="globaltimer()">
-	    <p>Jobs Array length: {{jobs.length}} </p>
+	    <p>Total Jobs: {{jobs.length}} </p>
 	    <ul>
 		<li ng-repeat="job in jobs">
 		    <ul ng-controller = 'counterCtrl' class="button-group">

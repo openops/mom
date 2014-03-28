@@ -1,8 +1,12 @@
 var myModule = angular.module("counterapp", []);
 
+
+// Function to be used for adding padded 0s to the time
 function pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
 }
+
+// Simple function used to return the array index from the key value
 
 function getArrayIndexForKey(arr, key, val){
     for(var i = 0; i < arr.length; i++){
@@ -13,11 +17,14 @@ function getArrayIndexForKey(arr, key, val){
 }
 
 myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout){
+
+    // Initializing timer values
     $scope.tDur = 0;
     $scope.seconds = 0;
     $scope.hours = 0;
     $scope.minutes = 0;
-    //Format time 
+
+    //Formatting the time 
     while ($scope.seconds >= 3600) { 
 	$scope.seconds = $scope.seconds - 3600;
 	$scope.hours++;
@@ -35,14 +42,13 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	{'intervals': [{start : '', stop: ''}],
 	 'duration': 0 };
 
-    $scope.seconds = 0;
-
     $scope.jobCounter = function() {
 	stopped = $timeout(function() { 
 	    $scope.seconds++;
 	    $scope.tDur++;
 	    if ($scope.seconds == 60) { $scope.minutes++; $scope.seconds = 0; }
 	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
+	    if ($scope.tDur%5 == 0) $scope.savesession('Session');
 	    $scope.jobCounter();
 	}, 1000);  //1000ms = 1 second
     }
@@ -158,13 +164,12 @@ localStorage.clear();
         $scope.jobs = JSON.parse(storedJobs);
     }
     
+/*
     runCounter = function() {
-	$scope.gcount += 1;
 	//GLOBAL TIMER TO SAVE ALL SESSIONS
 	$timeout(runCounter, 5000);
     };
 
     runCounter();    
-    $scope.gcount = 0;
-
+*/
 }
