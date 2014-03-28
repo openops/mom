@@ -1,1 +1,0 @@
-../phonegap/README.md
