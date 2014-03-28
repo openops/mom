@@ -13,7 +13,7 @@ function getArrayIndexForKey(arr, key, val){
 }
 
 myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout){
-    $scope.tDur = $scope.job.duration;
+    $scope.tDur = 0;
     $scope.seconds = 0;
     $scope.hours = 0;
     $scope.minutes = 0;
@@ -41,7 +41,6 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	stopped = $timeout(function() { 
 	    $scope.seconds++;
 	    $scope.tDur++;
-	    console.log('tick ' + $scope.job.id);
 	    if ($scope.seconds == 60) { $scope.minutes++; $scope.seconds = 0; }
 	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
 	    $scope.jobCounter();
@@ -53,6 +52,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 
     $scope.start = function() {
 	$scope.StartDisabled = true;
+	$scope.ResumeDisabled = true;
 	$scope.session.intervals[0].start = Date.now();
 	$scope.session.intervals[0].stop = 'false';
 	$scope.savesession('Session');
@@ -60,6 +60,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     };
     
     $scope.stop = function(){
+	$scope.ResumeDisabled = false;
 	//Stops the current timer
 	$timeout.cancel(stopped);
 	$scope.ResumeDisabled = false;
@@ -69,6 +70,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     }
 
     $scope.resume = function(){
+	$scope.ResumeDisabled = true;
 	$scope.session.intervals.push({'start': Date.now(),'stop': 'false'});
 	$scope.savesession('Session');
 	$scope.jobCounter();
@@ -76,17 +78,17 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 
     $scope.reset = function(){
 	$scope.StartDisabled = false;
+	$scope.ResumeDisabled = true;
 	$scope.clearsession();
 	$timeout.cancel(stopped);
 	$scope.cleartime();
     }
 
     $scope.log = function(){
-	$timeout.cancel(stopped);
-	$scope.StartDisabled = false;
 	$scope.intervalstop();
 	$scope.savesession('Session');
 	$scope.savesession('Archive');
+	$scope.reset();
     }
     
     $scope.removejob = function(){
@@ -103,7 +105,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 
 
     $scope.savesession = function(name){
-	$scope.job.duration = $scope.tDur;
+	$scope.session.duration = $scope.tDur;
 	localStorage.setItem(name + '_' + $scope.job.id, JSON.stringify($scope.session));
     }
     
