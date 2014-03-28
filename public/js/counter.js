@@ -30,28 +30,28 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     
     var stopped;
     var savetimer;
-    $scope.firsttime = true;
+
+    $scope.seconds = 0;
+
+    $scope.jobCounter = function() {
+	stopped = $timeout(function() { 
+	    $scope.seconds++;
+	    console.log('tick ' + $scope.job.id);
+	    if ($scope.seconds == 60) { $scope.minutes++; $scope.seconds = 0; }
+	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
+	    $scope.jobCounter();
+	}, 1000);  //1000ms = 1 second
+    }
+    	
     // These are the functions used when clicking the corresponding
     // buttons displayed on each job
 
     $scope.start = function() {
 	$scope.StartDisabled = true;
-	if ($scope.firsttime == true) {
-	    $scope.session.intervals[0].start = Date.now();
-	    $scope.session.intervals[0].stop = 'false';
-	    $scope.firsttime = false;
-	    $scope.savesession('Session');
-	    console.log('first time run for ' + $scope.job.name);
-	}
-	// THIS NEEDS TO BE SEPERATE FROM START
-	stopped = $timeout(function() {
-	    $scope.seconds++;
-	    if ($scope.seconds == 60) { $scope.minutes++; $scope.seconds = 0; }
-	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
-	    $scope.start();
-	}, 1000);  //1000ms = 1 second
-	// THAT WAY BUTTONS CAN BE SEPERATE FROM THE TIMER
-
+	$scope.session.intervals[0].start = Date.now();
+	$scope.session.intervals[0].stop = 'false';
+	$scope.savesession('Session');
+	$scope.jobCounter();
     };
     
 	
