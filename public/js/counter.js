@@ -13,6 +13,7 @@ function getArrayIndexForKey(arr, key, val){
 }
 
 myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout){
+    $scope.tDur = $scope.job.duration;
     $scope.seconds = 0;
     $scope.hours = 0;
     $scope.minutes = 0;
@@ -27,15 +28,19 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	$scope.minutes++;
     }
     
-    
     var stopped;
     var savetimer;
+
+    $scope.session =
+	{'intervals': [{start : '', stop: ''}],
+	 'duration': 0 };
 
     $scope.seconds = 0;
 
     $scope.jobCounter = function() {
 	stopped = $timeout(function() { 
 	    $scope.seconds++;
+	    $scope.tDur++;
 	    console.log('tick ' + $scope.job.id);
 	    if ($scope.seconds == 60) { $scope.minutes++; $scope.seconds = 0; }
 	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
@@ -54,7 +59,6 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	$scope.jobCounter();
     };
     
-	
     $scope.stop = function(){
 	//Stops the current timer
 	$timeout.cancel(stopped);
@@ -62,12 +66,14 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	$scope.intervalstop();
 	$scope.savesession('Session');
 	//Add a new start interval
-    } 
+    }
+
     $scope.resume = function(){
 	$scope.session.intervals.push({'start': Date.now(),'stop': 'false'});
 	$scope.savesession('Session');
-	$scope.start();
+	$scope.jobCounter();
     }
+
     $scope.reset = function(){
 	$scope.StartDisabled = false;
 	$scope.clearsession();
@@ -97,6 +103,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 
 
     $scope.savesession = function(name){
+	$scope.job.duration = $scope.tDur;
 	localStorage.setItem(name + '_' + $scope.job.id, JSON.stringify($scope.session));
     }
     
@@ -107,11 +114,12 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     $scope.clearsession = function(){
 	$scope.session =
 	    {'intervals': [
-		{'start': Date.now(),
-		 'stop' : 'false'}
+		{'start': '',
+		 'stop' : ''}
 	    ],
 	    'duration': 0
 	    }
+	localStorage.removeItem('Session_' + $scope.job.id);
     }
 
 
@@ -121,6 +129,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	$scope.hours = 0;
 	$scope.tDur = 0;
     }
+    
 
 }]);
 
@@ -130,10 +139,6 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 function JobsListCtrl ($scope, $timeout) {
 
 localStorage.clear();
-
-    $scope.session =
-	{'intervals': [{start : '', stop: ''}],
-	 'duration': 0 };
 
     //Store in local storage with job-id
     //Check Local Storage
