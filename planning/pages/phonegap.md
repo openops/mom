@@ -26,7 +26,7 @@ $ phonegap create my-app
 $ cd my-app
 $ phonegap run android
 ```
-**Note: android sdk required**
+
 
 ## Useful Commands
 - `create <path>`    creates a phonegap project
