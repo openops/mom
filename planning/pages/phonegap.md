@@ -15,7 +15,7 @@ Phonegap creates a easy way for us to reach many platforms from one source.
 - type `android`
 - Ensure that you have platform and build tools installed, and ensure you have at least version 19
 
-### Ubuntu
+### Ubuntu 12.04 LTS
 - 
 
 
