@@ -4,13 +4,19 @@ Phonegap
 Phonegap will be used in MOM as a way to compile our app for multiple platforms.
 Phonegap creates a easy way for us to reach many platforms from one source.
 
-## Prerequisites
 
-- NodeJS
+## Platforms
+### OSX
 
+- `npm install phonegap -g`
+- `brew update`
+- `brew install ant`
+- `brew install android-sdk`
+- type `android`
+- Ensure that you have platform and build tools installed, and ensure you have at least version 19
 
-## Install
-`$ sudo npm install -g phonegap`
+### Ubuntu
+- 
 
 
 
