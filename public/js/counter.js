@@ -18,13 +18,23 @@ function getArrayIndexForKey(arr, key, val){
 
 myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout){
 
+    $scope.jobCounter = function() {
+	stopped = $timeout(function() { 
+	    $scope.seconds++;
+	    $scope.tDur++;
+	    if ($scope.seconds == 60) { $scope.minutes++; $scope.seconds = 0; }
+	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
+	    if ($scope.tDur%5 == 0) $scope.savesession('Session');
+	    $scope.jobCounter();
+	}, 1000);  //1000ms = 1 second
+    }
     // Initializing timer values
     $scope.tDur = 0;
     $scope.seconds = 0;
     $scope.hours = 0;
     $scope.minutes = 0;
 
-    //Formatting the time 
+    //Formatting the time -> needs to be function 
     while ($scope.seconds >= 3600) { 
 	$scope.seconds = $scope.seconds - 3600;
 	$scope.hours++;
@@ -42,17 +52,37 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	{'intervals': [{start : '', stop: ''}],
 	 'duration': 0 };
 
-    $scope.jobCounter = function() {
-	stopped = $timeout(function() { 
-	    $scope.seconds++;
-	    $scope.tDur++;
-	    if ($scope.seconds == 60) { $scope.minutes++; $scope.seconds = 0; }
-	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
-	    if ($scope.tDur%5 == 0) $scope.savesession('Session');
-	    $scope.jobCounter();
-	}, 1000);  //1000ms = 1 second
+  
+    // Check for stored sessions
+    var storedSession = localStorage.getItem('Session_' + $scope.job.id);
+    if (storedSession == (null)) {
+	//No local storage load blank session for now
+	$scope.session =
+	    {'intervals': [{start : '', stop: ''}],
+	     'duration': 0 };
+	// If person clicks Start, jobs loads to active session
     }
-    	
+    else{
+	// load stored session
+        $scope.session = JSON.parse(storedSession);
+	$scope.tDur = $scope.session.duration;
+	$scope.seconds = $scope.tDur;
+
+	while ($scope.seconds >= 3600) { 
+	    $scope.seconds = $scope.seconds - 3600;
+	    $scope.hours++;
+	}
+
+	while ($scope.seconds >= 60) { 
+	    $scope.seconds = $scope.seconds - 60;
+	    $scope.minutes++;
+	}
+	if ($scope.session.intervals[$scope.session.intervals.length - 1].stop == 'false') {
+	    $scope.ResumeDisabled = true;
+	    $scope.StartDisabled = true;
+	    $scope.jobCounter();
+	}
+    }
     // These are the functions used when clicking the corresponding
     // buttons displayed on each job
 
@@ -145,9 +175,6 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 // The following is run when the the job list is first created
 
 function JobsListCtrl ($scope, $timeout) {
-
-localStorage.clear();
-
     //Store in local storage with job-id
     //Check Local Storage
     var storedJobs = localStorage.getItem('jobs');
