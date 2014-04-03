@@ -33,7 +33,7 @@ grunt build
 
 ## Contributing
 
-Ensure that you follow our strategy for using [Git with GitHub](git.md).
+Ensure that you follow our strategy for using [Git with GitHub](pages/git.md).
 
 
 
