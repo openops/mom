@@ -5,9 +5,10 @@
     <body ng-app="counterapp">
 	<div ng-controller = "JobsListCtrl" data-ng-init="globaltimer()">
 	    <p>Total Jobs: {{jobs.length}} </p>
+	    <a href="#" class="fancy radius button">Fancy this Button!</a>
 	    <ul>
 		<li ng-repeat="job in jobs">
-		    <ul ng-controller = 'counterCtrl' class="button-group">
+		<ul ng-controller = 'counterCtrl' class="button-group">
 			<h4> {{job.name}} </h4>
 			<h2>{{hours}}:{{minutes}}:{{seconds}}</h2> 
 			<li> <button 
