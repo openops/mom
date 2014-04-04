@@ -21,6 +21,7 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-sass": "~0.8.0",
     "karma": "^0.12.3",
-    "grunt-karma": "^0.8.2"
+    "grunt-karma": "^0.8.2",
+    "protractor": "~0.17.0"
   }
 }
