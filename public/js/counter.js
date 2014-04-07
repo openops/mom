@@ -1,5 +1,5 @@
 var myModule = angular.module("counterapp", []);
-
+angular.module('myApp.services', []).value('version', '0.1');
 
 // Function to be used for adding padded 0s to the time
 function pad(d) {
@@ -7,6 +7,7 @@ function pad(d) {
 }
 
 // Simple function used to return the array index from the key value
+
 
 function getArrayIndexForKey(arr, key, val){
     for(var i = 0; i < arr.length; i++){
