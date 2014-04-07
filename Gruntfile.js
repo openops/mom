@@ -6,7 +6,12 @@ module.exports = function(grunt) {
 	unit:{
 	    configFile: 'test/karma.conf.js',
 	    background: true
-	}
+	},
+	travis: {
+	    configFile: 'test/karma.conf.js',
+	    singleRun: true,
+	    browsers: ['PhantomJS']
+	    }
     },
 
     sass: {
@@ -44,4 +49,6 @@ module.exports = function(grunt) {
   grunt.registerTask('build', ['sass']);
   grunt.registerTask('default', ['build','watch']);
   grunt.registerTask('devmode', ['karma:unit', 'watch']);
+
+  grunt.registerTask('test', ['karma:travis'])
 }	
