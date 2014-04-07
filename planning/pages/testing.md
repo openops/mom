@@ -27,6 +27,12 @@ However, this also means that Karma must also be run as a Grunt task.
 
 [Grunt Karma GitHub Page](https://github.com/karma-runner/grunt-karma#running-tests)
 
+#### Running with grunt
+
+- To run the karma server type: `grunt devmode`
+
+- While devmode is running it watches for file changes and then runs the unit tests.
+
 ### Jasmine
 
 Jasmine is a Behavior Driven Development testing framework for JavaScript. 
