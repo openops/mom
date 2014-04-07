@@ -28,9 +28,9 @@ module.exports = function(grunt) {
 	karma: {
 	    files: ['public/js/**/*.js', 'test/unit/**/*.js'],
 	    tasks: ['karma:unit:run']
-	}
+	},
 
-	sass: {
+	sass:{
 	    files: 'public/scss/**/*.scss',
 	    tasks: ['sass']
 	}

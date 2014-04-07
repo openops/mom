@@ -8,6 +8,7 @@ function pad(d) {
 
 // Simple function used to return the array index from the key value
 
+
 function getArrayIndexForKey(arr, key, val){
     for(var i = 0; i < arr.length; i++){
 	if(arr[i][key] == val)
@@ -146,7 +147,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     }
     
     $scope.intervalstop = function(){
--	$scope.session.intervals[$scope.session.intervals.length - 1].stop = Date.now();
+	$scope.session.intervals[$scope.session.intervals.length - 1].stop = Date.now();
     }
 
     $scope.clearsession = function(){
