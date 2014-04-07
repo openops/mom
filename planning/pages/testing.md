@@ -37,7 +37,7 @@ Jasmine aims to be easy to read. A simple hello world test looks like the code b
 suite of tests and *it()* is an individual test specification. The name *it()* follows the idea of behavior-driven 
 development and serves as the first word in the test name, which should be a complete sentence.
 
-```jasmine
+```karma
 describe('Hello world', function() {
     it('says hello', function() {
 	expect(helloWorld()).toEqual("Hello world!");

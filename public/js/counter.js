@@ -1,5 +1,5 @@
 var myModule = angular.module("counterapp", []);
-
+angular.module('myApp.services', []).value('version', '0.1');
 
 // Function to be used for adding padded 0s to the time
 function pad(d) {
@@ -146,7 +146,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
     }
     
     $scope.intervalstop = function(){
-	$scope.session.intervals[$scope.session.intervals.length - 1].stop = Date.now();
+-	$scope.session.intervals[$scope.session.intervals.length - 1].stop = Date.now();
     }
 
     $scope.clearsession = function(){
