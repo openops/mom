@@ -5,8 +5,8 @@ Matters of Minutes
 
 A time tracking tool designed to keep track of you just like a mom.
 
-## Purposes & Considerations
+## Activities & Checkups
 
-#### Purpose Registry
+#### Activity Registry
 
-#### Consideration Registry
+#### Checkup Registry
