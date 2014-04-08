@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/freesurface/mom.svg?branch=master)](https://travis-ci.org/freesurface/mom)
+
 Matters of Minutes
 ==================
 
