@@ -4,4 +4,5 @@ node_js:
 before_script:
       - 'npm install -g grunt-cli'
 notifications:
-      hipchat: [e0bd37f411ca349a13255789d53074]@[freesurface]
+  hipchat: 
+    - secure: "QyQcmemZvaHVYLg8hSS6xwfvzzcMhrlKB2C9ihKXzm+QwHMPsOqWHz8rtDtQVc5fwsalaP2rscbIOzyxKxPfh3xMJCkogOBlSPTmOqKv41yZu02g3Btnjaeu47Mb5wMqwAYib246sk1TP9cTf9zulLQtGAcOeujv69LyF3uIREg="
