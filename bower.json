@@ -10,6 +10,6 @@
     "momentjs": "~2.5.1",
     "backbone": "~1.1.2",
     "requirejs": "~2.1.11",
-    "backbone.localStorage": "~1.1.7"
+    "Backbone.dualStorage": "~1.2.0"
   }
 }
