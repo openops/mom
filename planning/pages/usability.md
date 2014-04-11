@@ -2,8 +2,10 @@ Usability
 ===========
 
 We will go over the functionality of each feature and button in this markdown.
-It will be used as a good middle ground between planning and developmet, as well
+It will be used as a good middle ground between planning and development, as well
 as provide a good standard when developing tests.
+
+Also we will go over the functionality and usability of each button. Whether it be swype, tap etc...
 
 ## Run time features
 The following are features that begin running on page load
