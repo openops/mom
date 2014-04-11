@@ -7,6 +7,7 @@
     "angular-loader": "1.2.x",
     "angular-mocks": "~1.2.15",
     "foundation": "zurb/bower-foundation",
-    "momentjs": "~2.5.1"
+    "momentjs": "~2.5.1",
+    "angular-carousel": "~0.2.2"
   }
 }
