@@ -1,6 +1,8 @@
-Testing with AngularJS
+Testing
 ---------------------------
 
+We're going to deploy our apps to multiple platforms for testing purposes. This will give us a good feel on how the app interacts and 
+functions on different devices. 
 
 Unit testing is a technique that helps developers validate isolated pieces of code. 
 End to end testing (E2E) comes into play when you want to ascertain that a set of components, when integrated together, 
@@ -67,3 +69,8 @@ The node module's example folder contains a simple test suite which runs against
 You will need a configuration file containing setup info and test files containing the actual test scripts. 
 The config file specifies how the runner should start webdriver, where your test files are, and global setup options. 
 The test files use Jasmine framework by default.
+
+
+### Travis CI
+
+We will use Travis for continual integration. It is set up to test each commit as well as give notification to HipChat.
