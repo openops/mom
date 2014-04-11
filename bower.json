@@ -8,6 +8,12 @@
     "angular-mocks": "~1.2.15",
     "foundation": "zurb/bower-foundation",
     "momentjs": "~2.5.1",
+<<<<<<< HEAD
     "angular-carousel": "~0.2.2"
+=======
+    "backbone": "~1.1.2",
+    "requirejs": "~2.1.11",
+    "Backbone.dualStorage": "~1.2.0"
+>>>>>>> master
   }
 }
