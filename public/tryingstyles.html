@@ -1,0 +1,33 @@
+<html>
+    <head> 
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+    </head>
+    <body ng-app="counterapp">
+	<div ng-controller = "JobsListCtrl">
+	    <p>Total Jobs: {{jobs.length}} </p>
+	    <ul>
+		<li ng-repeat="job in jobs">
+		<ul ng-controller = 'counterCtrl' class="button-group">
+			<h4> {{job.name}} </h4>
+			<h2>{{hours}}:{{minutes}}:{{seconds}}</h2> 
+			<li> <button 
+			    ng-show = "!StartDisabled" 
+			    ng-class = "{'disabled':StartDisabled}" 
+			    ng-click= "StartDisabled || start()"> Start</li>
+			<li> <button 
+			    ng-show = "StartDisabled" 
+			    ng-class = "{'disabled':ResumeDisabled}"
+			    ng-click="ResumeDisabled || resume()"> Resume</li>
+			<li> <button ng-class ="{'disabled':!StartDisabled}" ng-click="!StartDisabled || stop()"> Stop</li>
+			<li> <button ng-click="reset()"> Reset</li>
+			<li> <button ng-click="log()"> Log</li>
+			<li> <button ng-class = "{'alert': true}" ng-click="removejob()"> Remove Job</li>
+		    </ul>
+		</li>
+	    </ul>
+	</div>
+
+	<script src="bower_packages/angular/angular.min.js"></script>
+	<script src="js/counter.js"></script>
+    </body>
+</html>
