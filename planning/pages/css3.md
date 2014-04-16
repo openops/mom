@@ -47,7 +47,7 @@ very natural way. The app should be oozing with simplicity and focus on the fund
 </ul>
 ```
 
-## CSS3 Best Practices
-
+## Design Decisions
+Here we will talk about styling decisions for the mom app 
 
 
