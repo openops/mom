@@ -1,10 +1,25 @@
 /* CSS Styling for Jobs */
 
+.app-title {
+    margin: 10px 10px 10px 70px;
+    font-size: 2rem;
+    letter-spacing: -1px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+
+@-webkit-keyframes pulse_animation {
+    0% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(1.2); }
+    100% { -webkit-transform: scale(1); }
+}
 
 
-
-.highlight{
-	background:linear-gradient(to bottom, #8dd2d9 , #58c0c7);
-    }
-
-
+.pulse {
+    -webkit-animation-name: 'pulse_animation';
+    -webkit-animation-duration: 2000ms;
+    -webkit-transform-origin:70% 70%;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
