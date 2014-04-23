@@ -35,3 +35,14 @@ It is an improvement over CommonJS modules because:
   object. Node supports module.exports = function () {}, but that is not part of a CommonJS spec.
 
 
+### Why AMD is A Better Choice For Writing Modular JavaScript
+
+- Provides a clear proposal for how to approach defining flexible modules.
+- Significantly cleaner than the present global namespace and script tag solutions many of us rely on. 
+  There's a clean way to declare stand-alone modules and dependencies they may have.
+- Module definitions are encapsulated, helping us to avoid pollution of the global namespace.
+- Works better than some alternative solutions (eg. CommonJS). Doesn't have issues with cross-domain, local 
+  or debugging and doesn't have a reliance on server-side tools to be used. Most AMD loaders 
+  support loading modules in the browser without a build process.
+- Provides a 'transport' approach for including multiple modules in a single file. 
+- It's possible to lazy load scripts if this is needed.
