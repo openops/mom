@@ -46,3 +46,17 @@ It is an improvement over CommonJS modules because:
   support loading modules in the browser without a build process.
 - Provides a 'transport' approach for including multiple modules in a single file. 
 - It's possible to lazy load scripts if this is needed.
+
+
+### Examples
+```javascript
+    // Consider 'foo' and 'bar' are two external modules
+    // In this example, the 'exports' from the two modules loaded are passed as
+    // function arguments to the callback (foo and bar)
+    // so that they can similarly be accessed
+     
+    require(['foo', 'bar'], function ( foo, bar ) {
+    // rest of your code here
+    foo.doSomething();
+    });
+```
