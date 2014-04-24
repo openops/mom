@@ -13,3 +13,5 @@ constructors, strings, JSON and many other types of modules, running natively in
 CommonJS on the other hand takes a server-first approach, assuming synchronous behaviour, 
 no global baggage and it attempts to cater for the future (on the server). CJS modules however only support 
 objects as modules.
+
+### Examples
