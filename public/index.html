@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
 
     </head>
-    <header class = 'app-head'>
+    <header class = 'app-head' ng-swipe-right = 'console.log("swiped title right");'>
 	<h3 class = "app-title"> MOM - Managing our Minutes </h3>
     </header> 
     <body ng-app="counterapp">
@@ -12,28 +12,30 @@
 	    <hr>
 	    <ul class="no-bullet">
 		<li ng-repeat="job in jobs">
-		    <ul ng-controller = 'counterCtrl' class="button-group">
-			<h4> {{job.name}} </h4>
-			<h2>{{hours}}:{{minutes}}:{{seconds}}</h2>
-			<div class="progress large-6 success round">
-			    <span class="meter" style="width: {{seconds*1.6}}%"></span>
+		    <div ng-swipe-right = 'removejob()'>
+			<ul ng-controller = 'counterCtrl' class="button-group">
+			    <h4> {{job.name}} </h4>
+			    <h2>{{hours}}:{{minutes}}:{{seconds}}</h2>
+			    <div class="progress large-6 success round">
+				<span class="meter" style="width: {{seconds*1.6}}%"></span>
+			    </div>
+			    <div>
+			    <li> <button 
+					ng-show = "!StartDisabled"
+					class = 'pulse'
+					ng-class = "{'disabled':StartDisabled}" 
+					ng-click= "StartDisabled || start()"> Start</li>
+			    </div>
+			    <li> <button 
+				    ng-show = "StartDisabled" 
+				    ng-class = "{'disabled':ResumeDisabled}"
+				    ng-click="ResumeDisabled || resume()"> Resume</li>
+			    <li> <button ng-class ="{'disabled':!StartDisabled}" ng-click="!StartDisabled || stop()"> Stop</li>
+			    <li> <button ng-click="reset()"> Reset</li>
+			    <li> <button ng-click="log()"> Log</li>
+			    <li> <button ng-class = "{'alert': true}" ng-click="removejob()"> Remove Job</li>
+			    <hr>
 			</div>
-			<div>
-			   <li> <button 
-				    ng-show = "!StartDisabled"
-				    class = 'pulse'
-				    ng-class = "{'disabled':StartDisabled}" 
-				    ng-click= "StartDisabled || start()"> Start</li>
-			</div>
-			<li> <button 
-				ng-show = "StartDisabled" 
-				ng-class = "{'disabled':ResumeDisabled}"
-				ng-click="ResumeDisabled || resume()"> Resume</li>
-			<li> <button ng-class ="{'disabled':!StartDisabled}" ng-click="!StartDisabled || stop()"> Stop</li>
-			<li> <button ng-click="reset()"> Reset</li>
-			<li> <button ng-click="log()"> Log</li>
-			<li> <button ng-class = "{'alert': true}" ng-click="removejob()"> Remove Job</li>
-			<hr>
 		    </ul>
 		</li>
 	    </ul>
@@ -41,6 +43,7 @@
     
 	<script src="bower_packages/angular/angular.min.js"></script>
 	<script src="js/counter.js"></script>
-	<script src="js/transition.js"></script>
+	<script src="bower_packages/angular-touch/angular-touch.js"></script>
+
     </body>
 </html>

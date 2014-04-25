@@ -1,5 +1,6 @@
 var myModule = angular.module("counterapp", []);
-angular.module('myApp.services', []).value('version', '0.1');
+angular.module('myApp', ['ngTouch']);
+angular.module('myApp.services', ['ngTouch']).value('version', '0.1');
 
 // Function to be used for adding padded 0s to the time
 function pad(d) {
