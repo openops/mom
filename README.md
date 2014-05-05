@@ -18,7 +18,7 @@ better understanding on creating apps that are very clear and readable by someon
 ### BackboneJS
 
 Backbone is being used because of the control it gives us in how we want to create the app. It gives us all the tools we need
-in order to create a scalable application. Backbone also gives us access to a large resource of tools to help us achieve our goals.
+in order to create a scalable application. Backbone also gives us access to a large community to help us achieve our goals.
 
 ## The Plan
 
