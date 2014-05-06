@@ -16,6 +16,9 @@ better understanding on creating apps that are very clear and readable by someon
 
 ## Tools Being Used
 
+While always keeping our design philosophy in mind, we are going to use tools that help us build a scalable and 
+decentralized application.
+
 ### BackboneJS
 
 Backbone is being used because of the control it gives us in how we want to create the app. 
@@ -26,10 +29,13 @@ Backbone also gives us access to a large community to help us achieve our goals.
 
 ## Activities & Checkups
 
-Each activity and checkup will be its own object as well as interact with each other. 
-These interactions will mirror in the local storage db as well as the backbone models.
+Activities are going to be the tasks that the user inputs into the app. The application will then *checkup* 
+with the user using push notifications. This has to be designed in such a way that is completely modular and decentralized. Since this app is going to be designed in such a way it can 
+grow naturally and clearly, the activities need to be stored in a way that gives the app the ability to be synched 
+across multiple devices and servers. They also need to be designed so the app can resume easily from where it left off
+previously.
 
 #### Activity Registry
 
-Activities are a databse of tasks that the user will have entered into the database
+
 #### Checkup Registry
