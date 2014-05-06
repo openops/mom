@@ -12,8 +12,6 @@ Seperating all our concerns creates an application that
 can grow well in the open source community. By using tools that can help us enforce this practice we hope to get a 
 better understanding on creating apps that are very clear and readable by someone looking to contribute.
 
-
-
 ## Tools Being Used
 
 While always keeping our design philosophy in mind, we are going to use tools that help us build a scalable and 
@@ -27,11 +25,13 @@ Backbone also gives us access to a large community to help us achieve our goals.
 
 ## The Plan
 
+The development plan will consist of steps and milestones to achieve as we progress.
+
 ## Activities & Checkups
 
 Activities are going to be the tasks that the user inputs into the app. The application will then *checkup* 
-with the user using push notifications. This has to be designed in such a way that is completely modular and decentralized. Since this app is going to be designed in such a way it can 
-grow naturally and clearly, the activities need to be stored in a way that gives the app the ability to be synched 
+with the user using push notifications. This has to be designed in such a way that is completely modular and decentralized. Since this app is going to be designed in such a way that it can 
+grow naturally and clearly, the activities need to be stored in a way that gives the activities the ability to be synched 
 across multiple devices and servers. They also need to be designed so the app can resume easily from where it left off
 previously.
 
