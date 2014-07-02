@@ -1,10 +1,13 @@
 <html>
     <head> 
 	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<link rel="stylesheet" type="text/css" href="bower_packages/ionic/release/css/ionic.css">
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
-
+	<meta charset="utf-8">
+	<title> MOM </title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     </head>
-    <header class = 'app-head' ng-swipe-right = 'console.log("swiped title right");'>
+    <header class = 'app-head'>
 	<h3 class = "app-title"> MOM - Managing our Minutes </h3>
     </header> 
     <body ng-app="counterapp">
@@ -41,9 +44,13 @@
 	    </ul>
 	</div>
     
+	<script src="bower_packages/ionic/release/js/ionic.js"></script>
 	<script src="bower_packages/angular/angular.min.js"></script>
+	<script src="bower_packages/angular-animate/angular-animate.js"></script>
+	<script src="bower_packages/angular-sanitize/angular-sanitize.js"></script>
+	<script src="bower_packages/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="bower_packages/ionic/release/js/ionic-angular.js"></script>
+	<script src="bower_packages/angular-route/angular-route.js"></script>
 	<script src="js/counter.js"></script>
-	<script src="bower_packages/angular-touch/angular-touch.js"></script>
-
     </body>
 </html>
