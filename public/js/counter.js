@@ -17,7 +17,7 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	    $scope.tDur++;
 	    if ($scope.seconds == 60) { $scope.minutes++; $scope.seconds = 0; }
 	    if ($scope.minutes == 60) { $scope.hours++; $scope.minutes = 0; }
-	    if ($scope.tDur%5 == 0) $scope.savesession('Session');
+	    $scope.savesession('Session');
 	    $scope.jobCounter();
 	}, 1000);  //1000ms = 1 second
     }
