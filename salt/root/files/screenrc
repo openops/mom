@@ -1,0 +1,3 @@
+hardstatus alwayslastline "%{= bW}%-Lw%{= gW}%50> %n%f* %t %{-}%+Lw%< %= %{= bW} %H %{= bW} %0c %d/%m %{= gW} %l %{-}"
+screen -t "SCSS Compiler" fab scss_watch
+screen -t "Dev Server" fab dev
