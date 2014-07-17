@@ -8,7 +8,7 @@ include:
   - nvmnode
   - virtualenv
   - supervisor
-  - java
+  - android
 
 screen:
   pkg:
@@ -73,7 +73,7 @@ remove-nginx-default-conf:
       - cmd: {{ short_name }}_virtualenv
 
 {{ nvmnode(short_name, app_user, app_group,
-           node_globals=["bower", "grunt-cli"]) }}
+           node_globals=["bower", "grunt-cli", "phonegap"]) }}
 
 install_rvm:
   cmd:
