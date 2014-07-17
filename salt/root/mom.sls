@@ -8,6 +8,7 @@ include:
   - nvmnode
   - virtualenv
   - supervisor
+  - java
 
 screen:
   pkg:
