@@ -61,6 +61,5 @@
   },
   "_source": "git://github.com/driftyco/ionic.git",
   "_target": "~0.9.27",
-  "_originalSource": "ionic",
-  "_direct": true
+  "_originalSource": "ionic"
 }

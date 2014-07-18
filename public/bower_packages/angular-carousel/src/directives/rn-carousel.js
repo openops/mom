@@ -174,13 +174,16 @@
                             containerWidth = slides[0].getBoundingClientRect().width;
                         }
                         // console.log('getCarouselWidth', containerWidth);
-                        return Math.floor(containerWidth);
+                        return containerWidth;
                     }
 
                     function updateContainerWidth() {
                         // force the carousel container width to match the first slide width
                         container.css('width', '100%');
-                        container.css('width', getCarouselWidth() + 'px');
+                        var width = getCarouselWidth();
+                        if (width) {
+                            container.css('width', width + 'px');
+                        }
                     }
 
                     function scroll(x) {
