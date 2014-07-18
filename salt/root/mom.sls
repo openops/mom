@@ -73,7 +73,8 @@ remove-nginx-default-conf:
       - cmd: {{ short_name }}_virtualenv
 
 {{ nvmnode(short_name, app_user, app_group,
-           node_globals=["bower", "grunt-cli", "phonegap"]) }}
+           node_globals=["bower", "grunt-cli", "phonegap",
+                         "cordova", "plugman"]) }}
 
 install_rvm:
   cmd:
@@ -101,6 +102,10 @@ install_foundation:
       - user: vagrant
     - text:
       - export PUSH_NOTIFICATION_KEY=""
+      - export HOME="/home/vagrant"
+      - export ANDROID_HOME="$HOME/android-sdk-linux/tools"
+      - export ANDROID_PLATFORM_TOOLS="$HOME/android-sdk-linux/platform-tools"
+      - export PATH="$ANDROID_HOME:$ANDROID_PLATFORM_TOOLS:$PATH"
       - source /home/vagrant/virtualenv/bin/activate
       - cd /vagrant
 
