@@ -161,7 +161,6 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 	$scope.tDur = 0;
     }
     
-
 }]);
 
 
@@ -182,5 +181,9 @@ function JobsListCtrl ($scope, $timeout) {
     else{
 	// load stored jobs
         $scope.jobs = JSON.parse(storedJobs);
+    }
+
+    $scope.addjob=function(){
+	console.log("Job Added");
     }
 }
