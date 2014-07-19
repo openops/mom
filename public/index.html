@@ -1,4 +1,4 @@
-<html>
+<html ng-app='counterapp'>
     <head> 
 	<link rel="stylesheet" type="text/css" href="css/app.css">
 	<link rel="stylesheet" type="text/css" href="bower_packages/ionic/release/css/ionic.css">
@@ -10,12 +10,15 @@
     <header class = 'app-head'>
 	<h3 class = "app-title"> MOM - Managing our Minutes </h3>
     </header> 
-    <body ng-app="counterapp">
+    <body>
 	<div ng-controller = "JobsListCtrl">
+	    <div class= 'body head'>
+		<button ng-click="addjob()"> +
+	    </div>
 	    <hr>
 	    <ul class="no-bullet">
 		<li ng-repeat="job in jobs">
-		    <div ng-swipe-right = 'removejob()'>
+		    <div>
 			<ul ng-controller = 'counterCtrl' class="button-group">
 			    <h4> {{job.name}} </h4>
 			    <h2>{{hours}}:{{minutes}}:{{seconds}}</h2>
@@ -51,8 +54,6 @@
 	<script src="bower_packages/angular-ui-router/release/angular-ui-router.js"></script>
 	<script src="bower_packages/ionic/release/js/ionic-angular.js"></script>
 	<script src="bower_packages/angular-route/angular-route.js"></script>
-	<script src="bower_packages//backbone/backbone.js"></script>
-	<script src="bower_packages/Backbone.dualStorage/backbone.dualstorage.js"></script>
 	<script src="js/counter.js"></script>
     </body>
 </html>
