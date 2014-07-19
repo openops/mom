@@ -73,8 +73,11 @@ remove-nginx-default-conf:
       - cmd: {{ short_name }}_virtualenv
 
 {{ nvmnode(short_name, app_user, app_group,
-           node_globals=["bower", "grunt-cli", "phonegap",
-                         "cordova", "plugman"]) }}
+           node_globals=["bower",
+                         "grunt-cli",
+                         "cordova",
+                         "phonegap",
+                         "plugman"]) }}
 
 install_rvm:
   cmd:
