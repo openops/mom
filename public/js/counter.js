@@ -9,6 +9,14 @@ function getArrayIndexForKey(arr, key, val){
     return -1;
 }
 
+function guidGenerator() {
+    var S4 = function() {
+	return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
+
 myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout){
 
     $scope.jobCounter = function() {
@@ -167,23 +175,32 @@ myModule.controller("counterCtrl",['$scope','$timeout', function($scope,$timeout
 // The following is run when the the job list is first created
 
 function JobsListCtrl ($scope, $timeout) {
+  // localStorage.clear(); 
     //Store in local storage with job-id
     //Check Local Storage
     var storedJobs = localStorage.getItem('jobs');
     if (storedJobs == (null)) {
+	console.log('loading test data, no local storage found');
 	//No local storage load test data
 	$scope.jobs = [
-	    { 'id' : '2X0XAA', 'name' : 'Working on the MOM app' },
-	    { 'id' : 'AH49SJ', 'name' : 'Creating logo'}
+	    { 'id' : '2X0XAA', 'name' : 'Working on the MOM app', 'length' : '30'},
+	    { 'id' : 'AH49SJ', 'name' : 'Creating logo', 'length' : '60'}
 	];
 	// If person clicks Start, jobs loads to active session
     }
     else{
 	// load stored jobs
+	console.log('loading jobs from local storage');
         $scope.jobs = JSON.parse(storedJobs);
     }
 
     $scope.addjob=function(){
-	console.log("Job Added");
+	var jName = prompt("What is your job name?");
+	var jLength = prompt("What is your job length?");
+	console.log("Job created with name:" + jName + " and length:" + jLength);
+//	$scope.jobs.push({ 'id' : '2FG3D5', 'name' : jName, 'length' : jLength });
+	$scope.jobs.push({ 'id' : guidGenerator(), 'name' : jName, 'length' : jLength });
+	$scope.jobs = localStorage.setItem('jobs', angular.toJson($scope.jobs));
+	location.reload();
     }
 }
