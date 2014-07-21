@@ -20,8 +20,8 @@ SCRIPT
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "mom-#{CURRENT_USER}"
 
-  config.vm.box = "ubuntu1204-stackstrap"
-  config.vm.box_url = "http://boxes.stackstrap.org/virtualbox/ubuntu1204-stackstrap.box"
+  config.vm.box = "ubuntu1404-stackstrap"
+  config.vm.box_url = "http://boxes.stackstrap.org/virtualbox/ubuntu1404-stackstrap.box"
 
   config.vm.network :public_network
 
