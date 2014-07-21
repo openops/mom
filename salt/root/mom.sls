@@ -121,4 +121,13 @@ install_foundation:
     - mode: 644
     - source: salt://files/screenrc
 
+add_cordova_platforms:
+  cmd:
+    - run
+    - name: source ~/.profile; cordova platform add android
+    - cwd: /vagrant/cordova
+    - user: vagrant
+    - require:
+      - cmd: node_global_cordova
+
 # vim: set ft=yaml ts=2 sw=2 sts=2 et ai :

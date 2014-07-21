@@ -37,3 +37,12 @@ def scss_watch():
     Start the watch process to compile SCSS into CSS on changes
     '''
     local('grunt watch')
+
+
+@task
+@hosts()
+def build_android():
+    '''
+    Build the Android Cordova packages
+    '''
+    local('./scripts/build_android.sh')
