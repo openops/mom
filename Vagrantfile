@@ -17,6 +17,16 @@ cd stackstrap-salt
 git archive master --prefix=/srv/ | (cd /; tar xf -)
 SCRIPT
 
+# our script to alert the user of how to access the development server
+$dev_server_info = <<SCRIPT
+bridged_ip=$(ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}' | sed -n 2p)
+echo; echo;
+echo "Your development environment is now configured."
+echo "Run 'fab dev' to start the development server"
+echo "You can then access it at http://app.$bridged_ip.xip.io"
+echo;
+SCRIPT
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "mom-#{CURRENT_USER}"
 
@@ -45,6 +55,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # now run the highstate
   config.vm.provision :shell, inline: "salt-call state.highstate"
 
-  config.vm.provision :shell,
-        inline: "echo; echo; echo \"Your development environment is now configured.\"; echo \"Run 'fab dev' to start the development server\"; echo \"You can then access it at http://mom-#{CURRENT_USER}.local:8000/\"; echo"
+  # alert the user of dev server info
+  config.vm.provision :shell, inline: $dev_server_info
 end

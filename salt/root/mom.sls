@@ -3,7 +3,6 @@
 #
 
 include:
-  - avahi
   - nginx
   - nvmnode
   - virtualenv
