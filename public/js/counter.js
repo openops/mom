@@ -198,7 +198,6 @@ function JobsListCtrl ($scope, $timeout) {
 	var jName = prompt("What is your job name?");
 	var jLength = prompt("What is your job length?");
 	console.log("Job created with name:" + jName + " and length:" + jLength);
-//	$scope.jobs.push({ 'id' : '2FG3D5', 'name' : jName, 'length' : jLength });
 	$scope.jobs.push({ 'id' : guidGenerator(), 'name' : jName, 'length' : jLength });
 	$scope.jobs = localStorage.setItem('jobs', angular.toJson($scope.jobs));
 	location.reload();
