@@ -2,15 +2,8 @@
   "name": "mom",
   "version": "1.0.0",
   "dependencies": {
-    "angular": "1.2.x",
-    "angular-route": "1.2.x",
-    "angular-loader": "1.2.x",
-    "angular-mocks": "~1.2.15",
     "foundation": "zurb/bower-foundation",
-    "momentjs": "~2.5.1",
-    "angular-carousel": "~0.2.2",
     "requirejs": "~2.1.11",
-    "angular-touch": "~1.2.16",
-    "ionic": "~0.9.27"
+    "backbone": "~1.1.2"
   }
 }
