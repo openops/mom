@@ -1,0 +1,12 @@
+name: MOM
+description: "Time tracking for everyone, by everyone. It's just a matter of minutes."
+meta_description: "Time tracking for everyone, by everyone. It's just a matter of minutes."
+
+markdown: redcarpet
+pygments: true
+logo: false
+paginate: 15
+
+# Details for the RSS feed generator
+url:            'blog url'
+author:         'Your Name'
