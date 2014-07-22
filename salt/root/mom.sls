@@ -124,8 +124,7 @@ install_foundation:
 add_cordova_platforms:
   cmd:
     - run
-    - name: source ~/.profile; cordova platform add android
-    - cwd: /vagrant/cordova
+    - name: source ~/.profile; cd cordova; cordova platform add android
     - user: vagrant
     - require:
       - cmd: node_global_cordova
