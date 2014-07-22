@@ -1,20 +1,20 @@
-var Song = Backbone.Model.extend({
+var Job = Backbone.Model.extend({
         defaults: {
-            name: "Not specified",
-            artist: "Not specified"
+            description: "Not specified",
+            intervals: ["array of intervals"],
+	    duration: "Not specified"
         },
         initialize: function(){
-            console.log("Music is the answer");
+            console.log("initialize job");
         }
     });
 
-    var Album = Backbone.Collection.extend({
-        model: Song
+    var Jobs = Backbone.Collection.extend({
+        model: Job
     });
 
-    var song1 = new Song({ name: "How Bizarre", artist: "OMC" });
-    var song2 = new Song({ name: "Sexual Healing", artist: "Marvin Gaye" });
-    var song3 = new Song({ name: "Talk It Over In Bed", artist: "OMC" });
+    var job1 = new Job({ description: "Test Job 1", intervals: ["test int"], duration: 'test' });
+    var job2 = new Job({ description: "Test Job 2", intervals: ["test int"], duration: 'test' });
 
-    var myAlbum = new Album([ song1, song2, song3]);
-    console.log( myAlbum.models ); // [song1, song2, song3]
+    var myJobs = new Jobs([job1, job2]);
+    console.log( myJobs.models );
