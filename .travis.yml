@@ -10,4 +10,4 @@ notifications:
 # blacklist
 branches:
   except:
-    - redux
+    - backbone

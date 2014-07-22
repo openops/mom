@@ -4,6 +4,7 @@
   "dependencies": {
     "foundation": "zurb/bower-foundation",
     "backbone": "~1.1.2",
-    "requirejs": "~2.1.14"
+    "requirejs": "~2.1.14",
+    "thorax": "~2.3.2"
   }
 }
