@@ -17,8 +17,9 @@
     events: {
       'click #start': 'start',
       'click #stop': 'stop',
+      'click #remove': 'remove'
     },
-    template: '<button class="btn btn-primary" id="start">Start</button><button class="btn btn-danger" id="stop">Stop</button><span id="elapsed">0</span> ms',
+    template: '<button class="button" id="start">Start</button> <button class="alert" id="stop">Stop</button> <button class="alert" id="remove">Remove</button><span id="elapsed">0</span> ms',
     render: function() {
       this.$el.html(_.template(this.template, this.model.toJSON()));
       this.$elapsed = this.$('#elapsed');
@@ -57,7 +58,6 @@
       // Save this as the elapsed delta
       this.model.set('elapsed', elapsed)
 
-      // TODO Update the view?
 
       clearInterval(this.running);
       this.running = false;
@@ -77,6 +77,7 @@
       // Update the view
       this.$elapsed.html(elapsed);
     }
+
 
   });
 
