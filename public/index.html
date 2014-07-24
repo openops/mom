@@ -1,37 +1,37 @@
-<!doctype html>
-<html lang='en'>
-    <head> 
-	<link rel="stylesheet" type="text/css" href="css/app.css">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
-	<meta charset="utf-8">
-	<title> MOM </title>
-    </head>
-    <header class = 'app-head'>
-	<h3 class = "app-title"> MOM - Managing our Minutes </h3>
-    </header> 
-    <body>
-	<div id="counterapp">
-	    <p>
-		Timers
-		<button id="add_counter">Add Counter</button>
-	    </p>
-		<div id="counters"></div>
-	</div>
-	<script type="text/template" id="counter-template">
-		<div class="counter">
-			counter value: <%- count %>
-			<button class='increment'>+</button>
-			<button class='decrement'>-</button>
-			<button class="remove_counter">Remove Counter</button>
-		</div>
-	</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Backbone.Typeahead Example</title>
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+  <div id="main" style="margin-top:25px;margin-left:25px">
+    <div class="row">
+      <h3>Timer</h3>
+      <div id="timer" class="col-lg-4 col-sm-6"></div>
+    </div>
+    <div class="row">
+      <button id="addOne">New Timer</button>
+      <div id="timers"></div>
+    </div>
+  </div>
 	<script src="bower_packages/jquery/dist/jquery.js"></script>
 	<script src="bower_packages/underscore/underscore.js"></script>
 	<script src="bower_packages/backbone/backbone.js"></script>
 	<script src="bower_packages/backbone-localstorage/backbone-localstorage.js"></script>
-	<script src="js/models/counter.js"></script>
-	<script src="js/views/counter.js"></script>
-	<script src="js/views/counterapp.js"></script>
-	<script src="js/routers/router.js"></script>
-    </body>
+	<script src="js/timer.js"></script>
+  
+  <script type="text/javascript">
+$(function() {
+  var timer = new Backbone.Timer();
+  timer.setElement('#timer').render();
+
+  $('#addOne').on('click', function() {
+    $('#timers').append((new Backbone.Timer()).render().el);
+  });
+
+});
+  </script>
+</body>
 </html>
