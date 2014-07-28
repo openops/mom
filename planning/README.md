@@ -15,7 +15,7 @@ Strategy for MOM
 
 ## Getting Started
 ```bash
-git clone https://github.com/freesurface/mom
+git clone https://github.com/openops/mom
 ```
 
 ```bash

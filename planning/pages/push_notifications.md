@@ -45,7 +45,7 @@ device settings for notifications.
    `$ phonegap local plugin add https://github.com/phonegap-build/PushPlugin`
 
 5. Add the PushNotification.js file referenced 
-[here](https://github.com/freesurface/mom/blob/master/planning/js/PushNotification.js) to your `PushNotificationSample/www` folder
+[here](https://github.com/openops/mom/blob/master/planning/js/PushNotification.js) to your `PushNotificationSample/www` folder
 
 6. Add the following script line to your index.html to reference the PushNotification.js.
    `<script type="text/javascript" src="PushNotification.js"></script>`
@@ -59,7 +59,7 @@ Under your google developer console project:
 2. In the displayed list of APIs, turn the **Google Cloud Messaging for Android** toggle to ON.
 
 We need to make some changes to our `www/js/index.js` file, in order to register our app.
-The final index.js file should look like [this](https://github.com/freesurface/mom/blob/master/planning/js/index.js)
+The final index.js file should look like [this](https://github.com/openops/mom/blob/master/planning/js/index.js)
 but with your *projectID* where it says *senderID* as referenced below.
 
 What we added:
@@ -89,7 +89,7 @@ You can run the application on your phone through USB if you have USB Debugging 
 When you run the application you should see a call made to register your 
 android device and a token received in an alert such as shown below:
 
-![](https://github.com/freesurface/mom/blob/master/planning/img/android-notify-reg.png?raw=true)
+![](https://github.com/openops/mom/blob/master/planning/img/android-notify-reg.png?raw=true)
 
 The registration ID is essentially the ID of the phone that you want to send notifications
 to. Since we will need this ID for our app, the best way to get it is by using the Android adb tool to
