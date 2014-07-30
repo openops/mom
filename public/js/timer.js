@@ -46,7 +46,7 @@
     stop: function() {
       // Determine the elapsed time
       if (!this.running) {
-        // The timer isn't running, so what
+        // The timer isn't running
         return;
       }
 
@@ -55,7 +55,7 @@
         elapsed += this.model.get('elapsed');
       }
 
-      // Save this as the elapsed delta
+      // Save this as the elapsed time
       this.model.set('elapsed', elapsed)
 
 
@@ -63,13 +63,12 @@
       this.running = false;
     },
     update: function() {
-      // Determine the current clock
+      // Determine the current time
 
       var now = new Date();
 
-      // This will return elapsed time in ms 
+      // This will return elapsed time in ms
       var elapsed = (now - this.model.get('start'));
-      // Add any pre-existing delta
       if (this.model.has('elapsed')) {
         elapsed += this.model.get('elapsed');
       }
@@ -77,7 +76,6 @@
       // Update the view
       this.$elapsed.html(elapsed);
     }
-
 
   });
 
