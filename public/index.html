@@ -1,57 +1,37 @@
-<html ng-app='counterapp'>
-    <head> 
-	<link rel="stylesheet" type="text/css" href="css/app.css">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
-	<meta charset="utf-8">
-	<title> MOM </title>
-    </head>
-    <header class = 'app-head'>
-	<h3 class = "app-title"> MOM - Managing our Minutes </h3>
-    </header> 
-    <body>
-	<div ng-controller = "JobsListCtrl">
-	    <div class= 'body head'>
-		<button ng-click="addjob()"> +
-	    </div>
-	    <hr>
-	    <ul class="no-bullet">
-		<li ng-repeat="job in jobs">
-		    <div>
-			<ul ng-controller = 'counterCtrl' class="button-group">
-			    <h4> {{job.name}} </h4>
-			    <h2>{{hours}}:{{minutes}}:{{seconds}}</h2>
-			    <div class="progress large-6 success round">
-				<span class="meter" style="width: {{seconds*1.6}}%"></span>
-			    </div>
-			    <div>
-			    <li> <button 
-					ng-show = "!StartDisabled"
-					class = 'pulse'
-					ng-class = "{'disabled':StartDisabled}" 
-					ng-click= "StartDisabled || start()"> Start</li>
-			    </div>
-			    <li> <button 
-				    ng-show = "StartDisabled" 
-				    ng-class = "{'disabled':ResumeDisabled}"
-				    ng-click="ResumeDisabled || resume()"> Resume</li>
-			    <li> <button ng-class ="{'disabled':!StartDisabled}" ng-click="!StartDisabled || stop()"> Stop</li>
-			    <li> <button ng-click="reset()"> Reset</li>
-			    <li> <button ng-click="log()"> Log</li>
-			    <li> <button ng-class = "{'alert': true}" ng-click="removejob()"> Remove Job</li>
-			    <hr>
-			</div>
-		    </ul>
-		</li>
-	    </ul>
-	</div>
-    
-	<script src="bower_packages/ionic/release/js/ionic.js"></script>
-	<script src="bower_packages/angular/angular.min.js"></script>
-	<script src="bower_packages/angular-animate/angular-animate.js"></script>
-	<script src="bower_packages/angular-sanitize/angular-sanitize.js"></script>
-	<script src="bower_packages/angular-ui-router/release/angular-ui-router.js"></script>
-	<script src="bower_packages/ionic/release/js/ionic-angular.js"></script>
-	<script src="bower_packages/angular-route/angular-route.js"></script>
-	<script src="js/counter.js"></script>
-    </body>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MOM</title>
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+  <div id="main" style="margin-top:25px;margin-left:25px">
+    <div class="row">
+      <h3>Timer</h3>
+      <button id="addOne">New Timer</button>
+      <div id="timer" class="col-lg-4 col-sm-6"></div>
+    </div>
+    <div class="row">
+      <div id="timers"></div>
+    </div>
+  </div>
+	<script src="bower_packages/jquery/dist/jquery.js"></script>
+	<script src="bower_packages/underscore/underscore.js"></script>
+	<script src="bower_packages/backbone/backbone.js"></script>
+	<script src="bower_packages/backbone-localstorage/backbone-localstorage.js"></script>
+	<script src="js/timer.js"></script>
+  
+  <script type="text/javascript">
+$(function() {
+  var timer = new Backbone.Timer();
+  timer.setElement('#timer').render();
+
+  $('#addOne').on('click', function() {
+    $('#timers').append((new Backbone.Timer()).render().el);
+  });
+
+});
+  </script>
+</body>
 </html>
