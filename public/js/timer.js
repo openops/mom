@@ -1,5 +1,9 @@
 (function() {
 
+  var vent = {};
+  _.extend(vent, Backbone.Events);
+
+
   var State = Backbone.Model.extend({
     // maintain the time elapsed data and latest start time
     initialize: function() {
@@ -7,11 +11,19 @@
     },
   });
 
+  var Checkup = Backbone.Model.extend({
+      initialize: function() {
+        var uid = ""
+	var checktime = ""
+      },
+  });
+
   var Timer = Backbone.View.extend({
     initialize: function() {
       // Create the model
       this.model = new State();
       this.intervals = [];
+      this.uid = Math.floor((Math.random() * 1000) + 1);
       // Running?
       this.running = false;
     },
@@ -35,9 +47,8 @@
 
       // Reset the start time
       this.model.set('start', new Date());
-      this.description =  prompt('Task Name?');
+      vent.trigger('MakeCheckup', this.uid);
       this.intervals.push(Date.now());
-      console.log('Job Created with description: ' + this.description + ' and start time: ' + this.intervals[0] );
       var self = this;
       var caller = function() {
         self.update.call(self);
@@ -53,7 +64,6 @@
         return;
       }
       this.intervals.push(Date.now());
-      console.log(this.intervals[1]);
       console.log(this.intervals.toString());
       var elapsed = new Date() - this.model.get('start');
       if (this.model.has('elapsed')) {
@@ -83,15 +93,15 @@
     }
 
   });
-
-
+  
   var Activities = Backbone.Collection.extend({
-    model: Timer
+    model: State
   });
 
   var Checkups = Backbone.Collection.extend({
-
+    model: Checkup
   });
+  
 
   Backbone.Timer = Timer;
 
