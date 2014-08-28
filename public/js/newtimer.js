@@ -1,17 +1,32 @@
-var Checkups = Backbone.model.extend({
+var Checkup = Backbone.Model.extend({
     initialize: function() {
     
     },
 });
 
-var Activites = Backbone.model.extend({
-    initialize: funtction() {
+var Activity = Backbone.Model.extend({
+    initialize: function() {
 
     },
 });
 
-var Timers = Backbone.model.extend({
+var Timer = Backbone.Model.extend({
+    defaults: {
+	time: 0,
+    },
     initialize: function(){
 
     },
 });
+
+
+var TimerList = Backbone.View.extend({
+    initialize: function(){
+	this.render();
+    },
+    events: {
+    },
+    template: '<button class="button" id="start">Start</button> <button class="alert" id="stop">Stop</button> <button class="alert" id="rem    ove">Remove</button><span id="elapsed">0</span> ms',
+    render: function() {
+});
+
