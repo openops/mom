@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MOM</title>
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+  <div id="main" style="margin-top:25px;margin-left:25px">
+    <div class="row">
+      <h3>Timer</h3>
+      <button id="addOne">New Timer</button>
+      <div id="timer" class="col-lg-4 col-sm-6"></div>
+    </div>
+    <div class="row">
+      <div id="timers"></div>
+    </div>
+  </div>
+	<script src="bower_packages/jquery/dist/jquery.js"></script>
+	<script src="bower_packages/underscore/underscore.js"></script>
+	<script src="bower_packages/backbone/backbone.js"></script>
+	<script src="bower_packages/backbone-localstorage/backbone-localstorage.js"></script>
+	<script src="js/timer.js"></script>
+  
+  <script type="text/javascript">
+$(function() {
+  var timer = new Backbone.Timer();
+  timer.setElement('#timer').render();
+
+  $('#addOne').on('click', function() {
+    $('#timers').append((new Backbone.Timer()).render().el);
+  });
+
+});
+  </script>
+</body>
+</html>
