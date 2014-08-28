@@ -25,8 +25,18 @@ var TimerList = Backbone.View.extend({
 	this.render();
     },
     events: {
+	'click .addOne': 'addOne' 
     },
-    template: '<button class="button" id="start">Start</button> <button class="alert" id="stop">Stop</button> <button class="alert" id="rem    ove">Remove</button><span id="elapsed">0</span> ms',
+    
+    template: _.template( $('#timerTemplate').html()),
     render: function() {
+	this.$el.html(_.template(this.template, this.model.toJSON()));
+    },
+    addOne: function() {
+	console.log('testtt');
+	alert('test');
+	var timer_view = new TimerList({ el: $("#timer_container") });
+    }
 });
+
 
