@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Backbone.js Todos</title>
+  <link rel="stylesheet" href="css/todos.css"/>
+</head>
+
+<body>
+
+  <div id="momapp">
+
+    <header>
+      <h1>MOM</h1>
+      <button id="new-item" type="text" placeholder="What needs to be done?"> new </button>
+    </header>
+
+    <section id="main">
+      <input id="toggle-all" type="checkbox">
+      <label for="toggle-all">Mark all as complete</label>
+      <ul id="item-list"></ul>
+    </section>
+
+    <footer>
+      <a id="clear-completed">Clear completed</a>
+      <div id="item-count"></div>
+    </footer>
+
+  </div>
+
+  <div id="instructions">
+    Double-click to edit a activity name.
+  </div>
+
+  <div id="credits">
+    Created by
+    <br />
+    <a href="http://freesurface.org/">Free Surface</a>.
+  </div>
+
+	<script src="bower_packages/jquery/dist/jquery.js"></script>
+	<script src="bower_packages/underscore/underscore.js"></script>
+	<script src="bower_packages/backbone/backbone.js"></script>
+	<script src="bower_packages/backbone.localStorage/backbone.localStorage.js"></script>
+	<script src="js/todos.js"></script>
+  <!-- Templates -->
+
+  <script type="text/template" id="item-template">
+    <div class="view">
+      <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+      <label><%- title %></label>
+      <a class="destroy"></a>
+    </div>
+    <input class="edit" type="text" value="<%- title %>" />
+  </script>
+
+  <script type="text/template" id="stats-template">
+    <% if (done) { %>
+      <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'activities' %></a>
+    <% } %>
+    <div class="item-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'activities' %></div>
+  </script>
+
+  </body>
+</html>
