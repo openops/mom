@@ -149,7 +149,6 @@ var State = { 'Activites' : [ {'id' : 123, 'name' : 'Test Job 1'},
         this.footer.hide();
       }
 
-      this.allCheckbox.checked = !remaining;
     },
 
     addOne: function(Activity) {

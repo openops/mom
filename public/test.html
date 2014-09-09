@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Backbone.js Todos</title>
+  <title>MOM</title>
   <link rel="stylesheet" href="css/todos.css"/>
 </head>
 
@@ -17,8 +17,6 @@
     </header>
 
     <section id="main">
-      <input id="toggle-all" type="checkbox">
-      <label for="toggle-all"></label>
       <ul id="item-list"></ul>
     </section>
 
@@ -34,14 +32,13 @@
 
 	<script src="bower_packages/jquery/dist/jquery.js"></script>
 	<script src="bower_packages/underscore/underscore.js"></script>
-	<script src="bower_packages/backbone/backbone.js"></script>
+	-<script src="bower_packages/backbone/backbone.js"></script>
 	<script src="bower_packages/backbone.localStorage/backbone.localStorage.js"></script>
 	<script src="js/todos.js"></script>
   <!-- Templates -->
 
   <script type="text/template" id="item-template">
     <div class="view">
-      <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
       <label><%- title %></label>
       <a class="destroy"></a>
     </div>
