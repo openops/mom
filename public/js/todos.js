@@ -119,8 +119,6 @@ var State = { 'Activites' : [ {'id' : 123, 'name' : 'Test Job 1'},
 
     events: {
       "click #new-item":  "createOnEnter",
-      "click #clear-completed": "clearCompleted",
-      "click #toggle-all": "toggleAllComplete"
     },
 
     initialize: function() {
