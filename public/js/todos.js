@@ -1,14 +1,5 @@
 $(function(){
 
-var State = { 'Activites' : [ {'id' : 123, 'name' : 'Test Job 1'},
-			      {'id' : 234, 'name' : 'Test Job 2'}
-			    ],
-	      'Checkups' : [ {'id' : 123, 'checktime' : '12342342'},
-			     {'id' : 234, 'checktime' : '12356456'}
-			    ]
-	    }
-
-
   var Activity = Backbone.Model.extend({
 
     defaults: function() {
@@ -49,7 +40,6 @@ var State = { 'Activites' : [ {'id' : 123, 'name' : 'Test Job 1'},
   });
 
   var Activities = new ActivityList;
-
 
 
   var ActivityView = Backbone.View.extend({
@@ -106,9 +96,24 @@ var State = { 'Activites' : [ {'id' : 123, 'name' : 'Test Job 1'},
     clear: function() {
       this.model.destroy();
     }
+  });
+
+
+  var TimerView = Backbone.View.extend({
+
+    initialize: function() {
+	this.render();
+    },
+
+    render: function() {
+	var template = _.template( $("#timer-template").html(), {} );
+        this.$el.html( template );
+
+    }
 
   });
 
+    var timer_view = new TimerView({ el: $("#timer_container") });
 
   // Our overall **AppView** is the top-level piece of UI.
   var AppView = Backbone.View.extend({
@@ -116,7 +121,6 @@ var State = { 'Activites' : [ {'id' : 123, 'name' : 'Test Job 1'},
     el: $("#momapp"),
 
     statsTemplate: _.template($('#stats-template').html()),
-
     events: {
       "click #new-item":  "createOnEnter",
     },
@@ -124,7 +128,6 @@ var State = { 'Activites' : [ {'id' : 123, 'name' : 'Test Job 1'},
     initialize: function() {
 
       this.input = this.$("#new-item");
-      this.allCheckbox = this.$("#toggle-all")[0];
 
       this.listenTo(Activities, 'add', this.addOne);
       this.listenTo(Activities, 'reset', this.addAll);
@@ -181,3 +184,5 @@ var State = { 'Activites' : [ {'id' : 123, 'name' : 'Test Job 1'},
   var App = new AppView;
 
 });
+
+

@@ -10,9 +10,12 @@
 <body>
 
   <div id="momapp">
+    <div id="timer_container">aa</div>
 
+    
     <header>
       <h1>MOM</h1>
+      <div id ='timer_container'></div>
       <button id="new-item" type="text" placeholder="What needs to be done?"> new </button>
     </header>
 
@@ -31,12 +34,16 @@
   </div>
 
 	<script src="bower_packages/jquery/dist/jquery.js"></script>
-	<script src="bower_packages/underscore/underscore.js"></script>
-	-<script src="bower_packages/backbone/backbone.js"></script>
+    <script src="bower_packages/underscore/underscore.js"></script>
+	<script src="bower_packages/backbone/backbone.js"></script>
 	<script src="bower_packages/backbone.localStorage/backbone.localStorage.js"></script>
 	<script src="js/todos.js"></script>
   <!-- Templates -->
 
+  <script type="text/template" id="timer-template">
+    <h1> 00:00:00</h1>
+  </script>
+  
   <script type="text/template" id="item-template">
     <div class="view">
       <label><%- title %></label>
