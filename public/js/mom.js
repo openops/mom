@@ -49,7 +49,7 @@ $(function(){
     template: _.template($('#item-template').html()),
 
     events: {
-      "click .toggle"   : "toggleDone",
+      "click"		: "sendTimer",
       "dblclick .view"  : "edit",
       "click a.destroy" : "clear",
       "keypress .edit"  : "updateOnEnter",
@@ -68,8 +68,9 @@ $(function(){
       return this;
     },
 
-    toggleDone: function() {
-      this.model.toggle();
+    sendTimer: function() {
+	Activities.trigger('ActivityClicked');
+    
     },
 
     edit: function() {
@@ -103,12 +104,17 @@ $(function(){
 
     initialize: function() {
 	this.render();
+	this.listenTo(Activities, 'ActivityClicked', this.timerToggle);
     },
 
     render: function() {
 	var template = _.template( $("#timer-template").html(), {} );
         this.$el.html( template );
 
+    },
+
+    timerToggle: function() {
+	alert('toggling the timer');
     }
 
   });
