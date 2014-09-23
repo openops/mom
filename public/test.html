@@ -10,7 +10,7 @@
 <body>
 
   <div id="momapp">
-    <div id="timer_container">aa</div>
+      <div id="timer_container"><div id = 'divsec'>12 </div></div>
 
     
     <header>
@@ -29,7 +29,7 @@
   <div id="credits">
     Created by
     <br />
-    <a href="http://freesurface.org/">Free Surface</a>.
+    <a href="http://openops.ca/">Open Ops</a>.
   </div>
 
 	<script src="bower_packages/jquery/dist/jquery.js"></script>
@@ -40,7 +40,7 @@
   <!-- Templates -->
 
   <script type="text/template" id="timer-template">
-    <h1> 00:00:00</h1>
+    <h1 id = 'timerval'> <%= seconds %> </h1>
   </script>
   
   <script type="text/template" id="item-template">

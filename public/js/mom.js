@@ -1,5 +1,5 @@
-$(function(){
 
+$(function(){
   var Activity = Backbone.Model.extend({
 
     defaults: function() {
@@ -103,18 +103,23 @@ $(function(){
   var TimerView = Backbone.View.extend({
 
     initialize: function() {
-	this.render();
+	var timerinterval = false;
 	this.listenTo(Activities, 'ActivityClicked', this.timerToggle);
+	this.seconds = parseInt($('#divsec').html());
+	this.render();
     },
 
     render: function() {
-	var template = _.template( $("#timer-template").html(), {} );
+	var template = _.template( $("#timer-template").html(), {seconds: this.seconds} );
         this.$el.html( template );
-
+	this.$seconds = this.$('#timerval');
+	return this;
     },
 
     timerToggle: function() {
-	alert('toggling the timer');
+	var timerinterval = setInterval( function() { this.seconds++; }, 200 );
+
+
     }
 
   });
