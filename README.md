@@ -72,3 +72,7 @@ Ideas like [Pomodoro](http://pomodorotechnique.com/) are already showing us
 that breaking up the tasks we work on can have rewards. What else can we
 learn? If we fragmented our time in the office we would certainly have less
 traffic... That alone could have massive economic benefits.
+
+To follow the progress, check us out on GitHub...
+
+[https://github.com/openops/mom](https://github.com/openops/mom)
