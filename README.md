@@ -1,9 +1,31 @@
 [![Build Status](https://travis-ci.org/openops/mom.svg?branch=master)](https://travis-ci.org/openops/mom)
 
-Matters of Minutes
-==================
+MOM
+===
 
-A time tool designed to keep track of you just like a mom.
+MOM stands for "matter of moments". In short it is a time tracking tool which
+understands that you don't want to have to think about how to record your time,
+instead you want it to seize the moments of attention that you award it.
+
+#### Built for the web first
+
+With upwards of five core smart phone platforms and thus five separate
+development processes, it no longer makes any sense to build for native. The
+arrival of PhoneGap and its continuation as Apache's Cordova has made it
+completely reasonable to build for the web first and plan to port to native
+after. Working this way allows you to seize the most active and creative
+developer market available today.
+
+Building native is plauged by a minefield of hoops and barriers for developers
+to deal with. The process is burdened with complex platform specific SDKs and
+overbearing certificate signing requests. Apple even goes so far to require
+that developers give them a hundred bucks just to take part. The only sane
+appoach is offered by Android in that it lets you build it's packages on Linux
+with no catch. MOM will be using [Vagrant](http://vagrantup.com) and a set of
+[Salt States](https://github.com/stackstrap/stackstrap-salt) to make localized
+builds a piece of cake.  We welcome the addition of any other platforms that
+don't ask developers to bend over backwards. We may support IOS when we finish,
+but either way anyone is free to port this project over on their own terms :)
 
 ## Philosophy
 
@@ -23,19 +45,6 @@ Backbone is being used because of the control it gives us in how we want to crea
 It gives us all the tools we need in order to create a scalable application. 
 Backbone also gives us access to a large community to help us achieve our goals.
 
-## The Plan
-
-### Angular and Ionic
- - [x] Implement Ionic and Angular into MOM
- - [ ] Create multiple pages and navigation
- - [ ] Implement swype and interactive features/navigation
- - [ ] Ensure app looks the same on iOS and Android
-
-### Backbone
- - [ ] Have Backbone pull data from localstorage and turn them in to objects
- - [ ] Allow angular to use the objects for its interface
-
-
 ## Activities & Checkups
 
 Activities are going to be the tasks that the user inputs into the app. The application will then *checkup* 
@@ -43,8 +52,3 @@ with the user using push notifications. This has to be designed in such a way th
 grow naturally and clearly, the activities need to be stored in a way that gives the activities the ability to be synched 
 across multiple devices and servers. They also need to be designed so the app can resume easily from where it left off
 previously.
-
-#### Activity Registry
-
-
-#### Checkup Registry
