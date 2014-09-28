@@ -7,6 +7,9 @@ MOM stands for "matter of moments". In short it is a time tracking tool which
 understands that you don't want to have to think about how to record your time,
 instead you want it to seize the moments of attention that you award it.
 
+MOM is all about building operational software in new and sane ways that will
+ready us for the future.
+
 #### Built for the web first
 
 With upwards of five core smart phone platforms and thus five separate
