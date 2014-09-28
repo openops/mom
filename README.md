@@ -7,19 +7,21 @@ layout: page
 
 Keeping track of how time is spent is essential to consultants and many
 professional industries. It's the data used to bill clients, and thus make
-money.
+money. Without accurate information we struggle to forecast and set ourselves
+up for future success. Everything becomes a guessing game.
 
 There are a plethora of tools available today which strive to accomplish this
-goal, but they all seem to fall short. Some are very basic and act as little
-more than an exagerated spreadsheet while others claim to be revolutionary
-concepts that will bring us new found productivity. The problem is that they
-all expect us to adapt to them, and frankly we just don't have the time or
-patience.
+goal, but they all seem to fall short of our goals. Some are very basic and act
+as little more than an exagerated spreadsheet while others claim to be
+revolutionary concepts that will bring us new found productivity. The problem is
+that they all expect us to adapt to them, and frankly we just don't have the
+time or patience.
 
-MOM aims to have one single goal, which is to find out how you spend your time.
-You should not have to learn how to use the tool, it should cater to your
-instinctive impulses. It should go out of it's way to learn how you think so
-that it can make sure that you are on point. It should think like your mom.
+MOM aims to have one single goal, which is to find out how we spend our time.
+We should not have to learn how to use the tools we use, they should cater to
+our instinctive impulses. MOM will go out of its way to learn how we think so
+that it can make sure that we are on point. It should be there for us, much
+like a mom.
 
 #### Software should be designed to evolve
 
@@ -45,7 +47,7 @@ problem at hand affects developers, designers and great thinkers alike.
 
 The popular notion today is that if you work really hard, good things will
 come. This may have been true in an age when the human workforce was responsible
-for outputting the product that allowed for the supply and thus met the demand.
+for outputting the products that allowed for the supply and thus met the demand.
 Fewer and fewer of us work in jobs where we are responsible for outputting
 the supply. Today most of us sit in front of comupters and preform tasks
 that perpetuate something which is untangleable.
@@ -54,9 +56,9 @@ There is very little evidence to show that working 9-5 at five days a week
 accomplishes more. It is very possible that doing so offers little more than
 appeasing old world beliefs. Even more troubling is the idea that the workforce
 is forgetting the notion of progress altogether. Instead they police each other
-to ensure that everyone is doing their duty. It is possible that the systems
-which we interact with have not been getting better because they are the only
-thing left which justifies our work habits.
+to ensure that everyone is doing their duty and putting in their "jobs worth".
+It is very possible that the systems which we interact with today have not been
+getting better because they are the only thing which justifies this thinking.
 
 New companies are emerging everyday which operate in ways that challenge these
 beliefs. What we need is data to show us what works best, so we can understand
