@@ -28,12 +28,12 @@ with no catch.
 
 MOM will be using [Vagrant](http://vagrantup.com) and a set of
 [Salt States](https://github.com/stackstrap/stackstrap-salt) to make localized
-builds a piece of cake. This will be on top of all sorts of other DevOps
-goodies that will enable the participation of the largest group of contributors
-possible. We welcome the addition of any other native platforms that support
-Linux and don't ask developers to bend over backwards. We may support IOS when
-we finish, but either way anyone is free to port this project over on their own
-terms :)
+builds for native platforms a piece of cake... starting with Android. This will
+be on top of all sorts of other DevOps goodies that will enable the
+participation of the largest group of contributors possible. We welcome the
+addition of any other native platforms that support Linux and don't ask
+developers to bend over backwards. We may support IOS when we finish, but either
+way anyone is free to port this project over on their own terms :)
 
 ## Philosophy
 
