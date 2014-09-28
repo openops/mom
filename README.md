@@ -56,7 +56,7 @@ There is very little evidence to show that working 9-5 at five days a week
 accomplishes more. It is very possible that doing so offers little more than
 appeasing old world beliefs. Even more troubling is the idea that the workforce
 is forgetting the notion of progress altogether. Instead they police each other
-to ensure that everyone is doing their duty and putting in their "jobs worth".
+to ensure that everyone is doing their duty and putting in their "job's worth".
 It is very possible that the systems which we interact with today have not been
 getting better because they are the only thing which justifies this thinking.
 
