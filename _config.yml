@@ -1,6 +1,6 @@
 name: MOM
-description: "Task tracking for everyone, by everyone. It's just a matter of moments."
-meta_description: "Task tracking for everyone, by everyone. It's just a matter of moments."
+description: "Matters of moments."
+meta_description: "Matters of moments."
 
 markdown: redcarpet
 pygments: true
