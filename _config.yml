@@ -1,6 +1,6 @@
 name: MOM
-description: "Keeping track of ourselves is a matters of moments."
-meta_description: "Keeping track of ourselves is a matters of moments."
+description: "Keeping track of ourselves is a matter of moments."
+meta_description: "Keeping track of ourselves is a matter of moments."
 
 markdown: redcarpet
 pygments: true
