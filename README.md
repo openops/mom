@@ -28,4 +28,15 @@ from real human feedback. When it is exposed to feedback it is often from small
 pockets of culture that tend to be disaccociated from how real people think,
 often making obscure assumptions about an ideal world.
 
+MOM is being built as 100% open-source and right out in the open. The project
+welcomes discussion from anyone and we promise to engage with you. We don't
+promise to bend to your will, but we certainly aim to understand where you are
+coming from. Understanding what people are trying to do with software is
+quinessential to getting it right. It makes no sense to build something that
+people must adapt to. Period.
 
+From the beginning MOM has been designed to be flexible in its technical
+approach. MOM aims to push the boundaries of how operational software is built.
+We believe that if done right, progress can be uninhibited and natural. If it
+makes people's lives easier, people will make it better... for free. The
+problem at effects developers, designers and great thinkers alike.
