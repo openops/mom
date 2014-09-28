@@ -39,4 +39,4 @@ From the beginning MOM has been designed to be flexible in its technical
 approach. MOM aims to push the boundaries of how operational software is built.
 We believe that if done right, progress can be uninhibited and natural. If it
 makes people's lives easier, people will make it better... for free. The
-problem at effects developers, designers and great thinkers alike.
+problem at hand affects developers, designers and great thinkers alike.
