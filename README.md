@@ -11,7 +11,7 @@ money.
 
 There are a plethora of tools available today which strive to accomplish this
 goal, but they all seem to fall short. Some are very basic and act as little
-more than an exagerated spreadsheet and others claim to be revolutionary
+more than an exagerated spreadsheet while others claim to be revolutionary
 concepts that will bring us new found productivity. The problem is that they
 all expect us to adapt to them, and frankly we just don't have the time or
 patience.
