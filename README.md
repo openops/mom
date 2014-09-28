@@ -19,12 +19,20 @@ completely reasonable to build for the web first and plan to port to native
 after. Working this way allows you to seize the most active and creative
 developer market available today.
 
-Building native is plauged by a minefield of hoops and barriers for developers
-to deal with. The process is burdened with complex platform specific SDKs and
-overbearing certificate signing requests. Apple even goes so far to require
-that developers give them a hundred bucks just to take part. The only sane
-appoach is offered by Android in that it lets you build its packages on Linux
-with no catch.
+This is all not to mention the fact that the biggest App producers are busy
+trying to [recreate their own webs](http://avc.com/2014/05/app-constellations/)
+within the careful confines of our devices, just so they can occupy more of our
+attention. It won't be long before a savvy companies skip the song and dance
+and just offer the web access to the device's core features from the get go.
+App stores can be lucrative for profits, but with too many of them for
+developers to target they can eventually be a liability towards device sales.
+
+Building native is also plauged by a minefield of hoops and barriers for
+developers to deal with. The process is burdened with complex platform specific
+SDKs and overbearing certificate signing requests. Apple even goes so far to
+require that developers give them a hundred bucks just to take part. The only
+sane appoach is offered by Android in that it lets you build its packages on
+Linux with no catch.
 
 MOM will be using [Vagrant](http://vagrantup.com) and a set of
 [Salt States](https://github.com/stackstrap/stackstrap-salt) to make localized
