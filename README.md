@@ -40,3 +40,30 @@ approach. MOM aims to push the boundaries of how operational software is built.
 We believe that if done right, progress can be uninhibited and natural. If it
 makes people's lives easier, people will make it better... for free. The
 problem at hand affects developers, designers and great thinkers alike.
+
+#### How much time do we waste?
+
+The popular notion today is that if you work really hard, good things will
+come. This may have been true in an age when the human workforce was responsible
+for outputting the product that allowed for the supply and thus met the demand.
+Fewer and fewer of us work in jobs where we are responsible for outputting
+the supply. Today most of us sit in front of comupters and preform tasks
+that perpetuate something which is untangleable.
+
+There is very little evidence to show that working 9-5 at five days a week
+accomplishes more. It is very possible that doing so offers little more than
+appeasing old world beliefs. Even more troubling is the idea that the workforce
+is forgetting the notion of progress altogether. Instead they police each other
+to ensure that everyone is doing their duty. It is possible that the systems
+which we interact with have not been getting better because they are the only
+thing left which justifies our work habits.
+
+New companies are emerging everyday which operate in ways that challenge these
+beliefs. What we need is data to show us what works best, so we can understand
+how to work better. Economics is about progress above all else. MOM is designed
+to collect this information as acurately and efficiently as possible. The more
+data we can collect, the more we have to learn from.
+
+Ideas like [Pomodoro](http://pomodorotechnique.com/) are already showing us
+that breaking up the tasks we work on can have rewards. What else can we
+learn?
