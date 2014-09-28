@@ -71,4 +71,4 @@ data we can collect, the more we have to learn from.
 Ideas like [Pomodoro](http://pomodorotechnique.com/) are already showing us
 that breaking up the tasks we work on can have rewards. What else can we
 learn? If we fragmented our time in the office we would certainly have less
-traffic... That alone has massive economic benefits.
+traffic... That alone could have massive economic benefits.
