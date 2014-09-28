@@ -21,7 +21,7 @@ developer market available today.
 
 This is all not to mention the fact that the biggest App producers are busy
 trying to [recreate their own webs](http://avc.com/2014/05/app-constellations/)
-within the careful confines of our devices, just so they can occupy more of our
+within the careful confines of our devices just so they can occupy more of our
 attention. It won't be long before a savvy companies skip the song and dance
 and just offer the web access to the device's core features from the get go.
 App stores can be lucrative for profits, but with too many of them for
