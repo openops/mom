@@ -29,7 +29,7 @@ developers to target they can eventually be a liability towards device sales.
 
 Building native is also plauged by a minefield of hoops and barriers for
 developers to deal with. The process is burdened with complex platform specific
-SDKs and overbearing certificate signing requests. Apple even goes so far to
+SDKs and overbearing certificate signing requests. Apple even goes so far as to
 require that developers give them a hundred bucks just to take part. The only
 sane appoach is offered by Android in that it lets you build its packages on
 Linux with no catch.
