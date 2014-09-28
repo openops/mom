@@ -66,6 +66,9 @@ how to work better. Economics is about progress above all else. MOM is designed
 to collect this information as acurately and efficiently as possible. The more
 data we can collect, the more we have to learn from.
 
+===
+
 Ideas like [Pomodoro](http://pomodorotechnique.com/) are already showing us
 that breaking up the tasks we work on can have rewards. What else can we
-learn?
+learn? If we fragmented our time in the office we would certainly have less
+traffic... That alone has massive economic benefits.
