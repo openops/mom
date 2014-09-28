@@ -21,7 +21,7 @@ You should not have to learn how to use the tool, it should cater to your
 instinctive impulses. It should go out of it's way to learn how you think so
 that it can make sure that you are on point. It should think like your mom.
 
-#### MOM is designed to evolve
+#### Software should be designed to evolve
 
 All too often software is built deep within the bowels of software shops, away
 from real human feedback. When it is exposed to feedback it is often from small
