@@ -93,8 +93,12 @@ body {
 	background: url(destroy.png) no-repeat;
 }
 
-#item-list li.running {
-	background-color: #6495ed;
+#timer_container.running {
+	color: green;
+}
+
+#timer_container.stopped {
+	color: red;
 }
 
 #item-list li.stopped {

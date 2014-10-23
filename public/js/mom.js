@@ -102,6 +102,7 @@ $(function(){
 
     initialize: function() {
 	var timerinterval = false;
+        this.$el.addClass("stopped");
 	this.listenTo(Activities, 'ActivityClicked', this.timerToggle);
 	this.listenTo(Activities, 'TimerUpdate', this.render);
 	window.seconds = parseInt($('#divsec').html());
@@ -118,16 +119,14 @@ $(function(){
     timerToggle: function() {
 	console.log('Activity Click Event Recieved');
         this.$el.addClass("running");
+        this.$el.removeClass("stopped");
 	setInterval(
 	    function(){
 		window.seconds++;
 		console.log(window.seconds);
 		Activities.trigger('TimerUpdate');
 	    },1000);
-	
     }
-
-    
 
   });
 
