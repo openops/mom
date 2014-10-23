@@ -70,7 +70,6 @@ $(function(){
 
     sendTimer: function() {
 	Activities.trigger('ActivityClicked');
-    
     },
 
     edit: function() {
@@ -99,28 +98,36 @@ $(function(){
     }
   });
 
-
   var TimerView = Backbone.View.extend({
 
     initialize: function() {
 	var timerinterval = false;
 	this.listenTo(Activities, 'ActivityClicked', this.timerToggle);
-	this.seconds = parseInt($('#divsec').html());
+	this.listenTo(Activities, 'TimerUpdate', this.render);
+	window.seconds = parseInt($('#divsec').html());
 	this.render();
     },
 
     render: function() {
-	var template = _.template( $("#timer-template").html(), {seconds: this.seconds} );
+	var template = _.template( $("#timer-template").html(), {seconds: window.seconds} );
         this.$el.html( template );
-	this.$seconds = this.$('#timerval');
+	window.$seconds = this.$('#timerval');
 	return this;
     },
 
     timerToggle: function() {
-	var timerinterval = setInterval( function() { this.seconds++; }, 200 );
-
-
+	console.log('Activity Click Event Recieved');
+        this.$el.addClass("running");
+	setInterval(
+	    function(){
+		window.seconds++;
+		console.log(window.seconds);
+		Activities.trigger('TimerUpdate');
+	    },1000);
+	
     }
+
+    
 
   });
 

@@ -93,6 +93,14 @@ body {
 	background: url(destroy.png) no-repeat;
 }
 
+#item-list li.running {
+	background-color: #6495ed;
+}
+
+#item-list li.stopped {
+	background-color: #6495ed;
+}
+
 #item-list li:hover .destroy {
   	display: block;
 }
@@ -144,58 +152,6 @@ body {
 	-ms-border-radius: 0 0 5px 5px;
 	-o-border-radius: 0 0 5px 5px;
 	border-radius: 0 0 5px 5px;
-}
-
-#clear-completed {
-	float: right;
-	line-height: 20px;
-	text-decoration: none;
-	background: rgba(0, 0, 0, 0.1);
-	color: #555555;
-	font-size: 11px;
-	margin-top: 8px;
-	margin-bottom: 8px;
-	padding: 0 10px 1px;
-	cursor: pointer;
-	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
-	-ms-border-radius: 12px;
-	-o-border-radius: 12px;
-	border-radius: 12px;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
-	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
-	-ms-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
-	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
-}
-
-#clear-completed:hover {
-	background: rgba(0, 0, 0, 0.15);
-	-webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
-	-moz-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
-	-ms-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
-	-o-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
-	box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
-}
-
-#clear-completed:active {
-	position: relative;
-	top: 1px;
-}
-
-#item-count span {
-	font-weight: bold;
-}
-
-#instructions {
-	margin: 10px auto;
-	color: #777777;
-	text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
-	text-align: center;
-}
-
-#instructions a {
-	color: #336699;
 }
 
 #credits {
