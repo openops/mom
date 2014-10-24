@@ -118,14 +118,21 @@ $(function(){
 
     timerToggle: function() {
 	console.log('Activity Click Event Recieved');
-        this.$el.addClass("running");
-        this.$el.removeClass("stopped");
-	setInterval(
-	    function(){
-		window.seconds++;
-		console.log(window.seconds);
-		Activities.trigger('TimerUpdate');
-	    },1000);
+	if ( $( this.$el ).hasClass( "running" ) ) {
+	    this.$el.addClass("stopped");
+	    this.$el.removeClass("running");
+	    clearInterval(window.maintimer);
+	}
+	else {
+	    this.$el.addClass("running");
+	    this.$el.removeClass("stopped");
+	    window.maintimer = setInterval(
+		function(){
+		    window.seconds++;
+		    console.log(window.seconds);
+		    Activities.trigger('TimerUpdate');
+		},1000);
+	}
     }
 
   });
