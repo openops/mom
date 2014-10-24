@@ -49,8 +49,7 @@ $(function(){
     template: _.template($('#item-template').html()),
 
     events: {
-      "click"		: "sendTimer",
-      "dblclick .view"  : "edit",
+      "dblclick .view"	: "sendTimer",
       "click a.destroy" : "clear",
       "keypress .edit"  : "updateOnEnter",
       "blur .edit"      : "close"
@@ -62,7 +61,7 @@ $(function(){
     },
 
     render: function() {
-      this.$el.html(this.template(this.model.toJSON()));
+	this.$el.html(this.template(this.model.toJSON()));
       this.$el.toggleClass('done', this.model.get('done'));
       this.input = this.$('.edit');
       return this;
@@ -94,6 +93,7 @@ $(function(){
 
     // Remove the item, destroy the model.
     clear: function() {
+      Activities.trigger('TimerClear');
       this.model.destroy();
     }
   });
@@ -105,6 +105,7 @@ $(function(){
         this.$el.addClass("stopped");
 	this.listenTo(Activities, 'ActivityClicked', this.timerToggle);
 	this.listenTo(Activities, 'TimerUpdate', this.render);
+	this.listenTo(Activities, 'TimerClear', this.timerClear);
 	window.seconds = parseInt($('#divsec').html());
 	this.render();
     },
@@ -115,7 +116,14 @@ $(function(){
 	window.$seconds = this.$('#timerval');
 	return this;
     },
-
+    timerClear: function() {
+	console.log('Timer Clear Event Recieved');
+	this.$el.addClass("stopped");
+	this.$el.removeClass("running");
+	clearInterval(window.maintimer);
+	window.seconds = 0;
+	this.render();
+    },
     timerToggle: function() {
 	console.log('Activity Click Event Recieved');
 	if ( $( this.$el ).hasClass( "running" ) ) {
@@ -129,7 +137,6 @@ $(function(){
 	    window.maintimer = setInterval(
 		function(){
 		    window.seconds++;
-		    console.log(window.seconds);
 		    Activities.trigger('TimerUpdate');
 		},1000);
 	}
