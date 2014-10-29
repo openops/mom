@@ -129,7 +129,10 @@ $(function(){
 	if ( $( this.$el ).hasClass( "running" ) ) {
 	    this.$el.addClass("stopped");
 	    this.$el.removeClass("running");
+	    //store interval
+	    window.seconds = 0;
 	    clearInterval(window.maintimer);
+	    this.render();
 	}
 	else {
 	    this.$el.addClass("running");
