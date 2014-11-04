@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MOM</title>
+  <link rel="stylesheet" href="css/mom.css"/>
+</head>
+
+<body>
+
+  <div id="momapp">
+      <div id="timer_container"><div id = 'divsec'>0 </div></div>
+
+    
+    <header>
+      <div id ='timer_container'></div>
+      <button id="new-item" type="text" placeholder="What needs to be done?"> new </button>
+    </header>
+
+    <section id="main">
+      <ul id="item-list"></ul>
+    </section>
+
+
+  </div>
+
+
+  <div id="credits">
+    Created by
+    <br />
+    <a href="http://openops.ca/">Open Ops</a>.
+  </div>
+
+	<script src="bower_packages/jquery/dist/jquery.js"></script>
+        <script src="bower_packages/underscore/underscore.js"></script>
+	<script src="bower_packages/backbone/backbone.js"></script>
+	<script src="bower_packages/backbone.localStorage/backbone.localStorage.js"></script>
+	<script src="js/mom.js"></script>
+  <!-- Templates -->
+
+  <script type="text/template" id="timer-template">
+    <h1 id = 'timerval'> <%= seconds %> </h1>
+  </script>
+  
+  <script type="text/template" id="item-template">
+    <div class="view">
+      <label><%- title %></label>
+      <a class="destroy"></a>
+    </div>
+    <input class="edit" type="text" value="<%- title %>" />
+  </script>
+
+  <script type="text/template" id="stats-template">
+    <% if (done) { %>
+      <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'activities' %></a>
+    <% } %>
+    <div class="item-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'activities' %></div>
+  </script>
+
+  </body>
+</html>
