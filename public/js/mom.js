@@ -58,17 +58,40 @@ $(function(){
     initialize: function() {
       this.listenTo(this.model, 'change', this.render);
       this.listenTo(this.model, 'destroy', this.remove);
+      this.listenTo(this.model, 'FocusJob', this.FocusJob);
     },
 
     render: function() {
-	this.$el.html(this.template(this.model.toJSON()));
+      this.$el.html(this.template(this.model.toJSON()));
       this.$el.toggleClass('done', this.model.get('done'));
       this.input = this.$('.edit');
       return this;
     },
 
     sendTimer: function() {
-	Activities.trigger('ActivityClicked');
+	if ( $( this.$el ).hasClass( "active" ) ) {
+	    // cancelling an active timer
+	    this.$el.removeClass("active");
+	    console.log('Clicked Job ');
+	    this.render();
+	    Activities.trigger('ActivityClicked');
+	}
+	else {
+	    //everything else cancels
+	    //this timer becomes active
+	    this.StopAll();    
+	    this.$el.addClass("active");
+	    console.log('Clicked Job ');
+	    this.render();
+	    Activities.trigger('ActivityClicked');
+	}
+    },
+
+    StopAll: function(){
+      // for each job in job list remove active class
+      // stop timer
+	$("li.active").removeClass("active");
+	console.log('removed all active class'); 
     },
 
     edit: function() {
@@ -127,6 +150,7 @@ $(function(){
     timerToggle: function() {
 	console.log('Activity Click Event Recieved');
 	if ( $( this.$el ).hasClass( "running" ) ) {
+	    Activities.trigger('FocusJob');
 	    this.$el.addClass("stopped");
 	    this.$el.removeClass("running");
 	    //store interval

@@ -113,6 +113,10 @@ body {
   	background-position: 0 -20px;
 }
 
+#item-list li.active {
+	color: green;
+}
+
 #item-list li.editing {
 	border-bottom: none;
 	margin-top: -1px;
