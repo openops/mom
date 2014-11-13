@@ -6,7 +6,9 @@ $(function(){
       return {
         title: "empty",
         order: Activities.nextOrder(),
-        done: false
+        active: false,
+        intervals: []
+	
       };
     },
 
@@ -58,7 +60,6 @@ $(function(){
     initialize: function() {
       this.listenTo(this.model, 'change', this.render);
       this.listenTo(this.model, 'destroy', this.remove);
-      this.listenTo(this.model, 'FocusJob', this.FocusJob);
     },
 
     render: function() {
@@ -69,6 +70,11 @@ $(function(){
     },
 
     sendTimer: function() {
+	var intervals = this.model.get('intervals');
+	intervals.push(new Date().getTime());
+	this.model.set('intervals', intervals);
+	console.log(this.model.get('intervals'));
+	this.model.save();
 	if ( $( this.$el ).hasClass( "active" ) ) {
 	    // cancelling an active timer
 	    this.$el.removeClass("active");
@@ -150,7 +156,6 @@ $(function(){
     timerToggle: function() {
 	console.log('Activity Click Event Recieved');
 	if ( $( this.$el ).hasClass( "running" ) ) {
-	    Activities.trigger('FocusJob');
 	    this.$el.addClass("stopped");
 	    this.$el.removeClass("running");
 	    //store interval
@@ -234,6 +239,7 @@ $(function(){
 
     toggleAllComplete: function () {
       var done = this.allCheckbox.checked;
+     // USE THIS TO SAVE ALL WITH GLOBAL TIMER
       Activities.each(function (Activity) { Activity.save({'done': done}); });
     }
 

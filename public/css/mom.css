@@ -77,10 +77,6 @@ body {
 	border-bottom: none;
 }
 
-#item-list li.done label {
-	color: #777777;
-	text-decoration: line-through;
-}
 
 #item-list .destroy {
 	position: absolute;
