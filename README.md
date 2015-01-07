@@ -3,6 +3,8 @@
 MOM
 ===
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openops/mom?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 MOM stands for "matter of moments". In short it is a time tracking tool which
 understands that you don't want to have to think about how to record your time,
 instead you want it to seize the moments of attention that you award it.
