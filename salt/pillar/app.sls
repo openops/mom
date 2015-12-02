@@ -1,2 +1,0 @@
-app:
-  mode: dev
